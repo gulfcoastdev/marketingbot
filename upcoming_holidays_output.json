@@ -1,0 +1,401 @@
+{
+  "generated_at": "2025-09-11T16:27:03.945444",
+  "total_dates": 8,
+  "holidays_by_date": {
+    "2025-11-20": {
+      "date": "2025-11-20",
+      "original_holidays": [
+        {
+          "holiday_id": 20757,
+          "name": "Universal Children's Day",
+          "date": "2025-11-20",
+          "description": "undefined",
+          "occasion_id": 6665,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20758,
+          "name": "Africa Industrialization Day",
+          "date": "2025-11-20",
+          "description": "undefined",
+          "occasion_id": 6666,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20759,
+          "name": "World Philosophy Day",
+          "date": "2025-11-20",
+          "description": "undefined",
+          "occasion_id": 6660,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20760,
+          "name": "Transgender Day of Remembrance",
+          "date": "2025-11-20",
+          "description": "undefined",
+          "occasion_id": 6667,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Universal Children's Day",
+      "tone_category": "Respectful",
+      "caption": "Celebrating the future of our world, our children. Happy Universal Children's Day.",
+      "image_prompt": "Create a square format image for Instagram. The image should evoke a respectful and positive tone. The visual should focus on diverse group of children from various backgrounds playing together in a harmonious, peaceful park under a clear, blue sky. The children should be happy and full of life, symbolizing hope and unity. The lighting should be soft and realistic, with natural shadows created by the sun. The color palette should be balanced, using soft tones of green for the park, blue for the sky, and a variety of colors for the children's clothing. Exclude all text, captions, logos, watermarks, or words from the image.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_20_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_20_background_with_text.png",
+      "generated_at": "2025-09-11T16:24:17.119850",
+      "content_ready": true
+    },
+    "2025-11-21": {
+      "date": "2025-11-21",
+      "original_holidays": [
+        {
+          "holiday_id": 20761,
+          "name": "World Television Day",
+          "date": "2025-11-21",
+          "description": "undefined",
+          "occasion_id": 6668,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20762,
+          "name": "Fake Friday",
+          "date": "2025-11-21",
+          "description": "undefined",
+          "occasion_id": 8001,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Television Day",
+      "tone_category": "Playful",
+      "caption": "Celebrating the magic and influence of television on our lives - it's World Television Day!",
+      "image_prompt": "Generate an Instagram-styled, square format image. The atmosphere should be playful and nostalgic. Visualize an old-style television set in the center, radiating a subtle warm glow, symbolizing the golden age of television. Around the TV, arrange iconic symbols from popular TV shows like a detective's magnifying glass, a superhero's cape, or a cowboy hat. Use a balanced palette of retro colors - think muted reds, blues, and yellows. No text, logos, watermarks, or words should be included in the image.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_21_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_21_background_with_text.png",
+      "generated_at": "2025-09-11T16:24:41.832631",
+      "content_ready": true
+    },
+    "2025-11-25": {
+      "date": "2025-11-25",
+      "original_holidays": [
+        {
+          "holiday_id": 20763,
+          "name": "International Day for the Elimination of Violence against Women",
+          "date": "2025-11-25",
+          "description": "undefined",
+          "occasion_id": 6674,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day for the Elimination of Violence against Women",
+      "tone_category": "Respectful",
+      "caption": "Honoring the strength and resilience of women worldwide. Stand against violence.",
+      "image_prompt": "Create a square format image for Instagram, focused on showing respect and honoring the fight against violence towards women. Use a balanced color palette of soft blues and greys, symbolizing tranquility and resilience. The composition should include an ethereal image of a woman, her face determined and strong, possibly with a tear on her cheek to evoke empathy. A subtle glow could enwrap her, signifying hope and strength. The background could show a crowd of diverse women, slightly blurred to give cinematic depth, standing in solidarity. Exclude any text, logos, or watermarks from the image. Lighting should be natural, perhaps a soft dawn or dusk to symbolize a new beginning or the end of a long struggle.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_25_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_25_background_with_text.png",
+      "generated_at": "2025-09-11T16:25:08.124655",
+      "content_ready": true
+    },
+    "2025-11-27": {
+      "date": "2025-11-27",
+      "original_holidays": [
+        {
+          "holiday_id": 20764,
+          "name": "Thanksgiving Day",
+          "date": "2025-11-27",
+          "description": "undefined",
+          "occasion_id": 6669,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20765,
+          "name": "Thanksgiving Day",
+          "date": "2025-11-27",
+          "description": "undefined",
+          "occasion_id": 6669,
+          "country": "US",
+          "type": "Federal Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Thanksgiving Day",
+      "tone_category": "Festive",
+      "caption": "Gather around the table and share the gratitude. Happy Thanksgiving!",
+      "image_prompt": "Generate an image with a warm, autumnal color palette. The scene should be a cozy, rustic dining room with a large wooden table laden with traditional Thanksgiving dishes like turkey, cranberry sauce, and pumpkin pie. The table should be surrounded by empty chairs, inviting viewers in. Natural light filters in from a window, creating a soft, inviting glow. The atmosphere should evoke a sense of warmth, family, and togetherness. Absolutely no text, logos, watermarks, or words should be included in the image.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_27_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_27_background_with_text.png",
+      "generated_at": "2025-09-11T16:25:30.908827",
+      "content_ready": true
+    },
+    "2025-11-28": {
+      "date": "2025-11-28",
+      "original_holidays": [
+        {
+          "holiday_id": 20766,
+          "name": "State Holiday",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6237,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20767,
+          "name": "Presidents' Day (Observed)",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 8002,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20768,
+          "name": "Lincoln's Birthday/Lincoln's Day",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6670,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20769,
+          "name": "Day After Thanksgiving",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6671,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20770,
+          "name": "Black Friday",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6672,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20771,
+          "name": "American Indian Heritage Day",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6594,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20772,
+          "name": "Native American Heritage Day",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6673,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20773,
+          "name": "Native American Heritage Day",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6673,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Presidents' Day (Observed)",
+      "tone_category": "Respectful",
+      "caption": "Honoring the leaders who've shaped our nation. Happy Presidents' Day!",
+      "image_prompt": "Create a square image for Instagram, filled with respectful and solemn atmosphere. The colors should be a balanced combination of red, white, and blue. The composition should include silhouettes of famous presidential monuments, like the Lincoln Memorial and Mount Rushmore, with realistic lighting and cinematic depth. Include an eagle soaring in the sky, symbolizing freedom and the spirit of America. The image should exclude any text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_28_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_28_background_with_text.png",
+      "generated_at": "2025-09-11T16:25:53.976173",
+      "content_ready": true
+    },
+    "2025-11-29": {
+      "date": "2025-11-29",
+      "original_holidays": [
+        {
+          "holiday_id": 20774,
+          "name": "International Day of Solidarity with the Palestinian People",
+          "date": "2025-11-29",
+          "description": "undefined",
+          "occasion_id": 6677,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20775,
+          "name": "Nellie Tayloe Ross's Birthday",
+          "date": "2025-11-29",
+          "description": "undefined",
+          "occasion_id": 6678,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day of Solidarity with the Palestinian People",
+      "tone_category": "Respectful",
+      "caption": "Honoring International Day of Solidarity with the Palestinian People, let's stand together for human rights and unity.",
+      "image_prompt": "A square-format Instagram image showing a symbolic representation of unity. Visualize a diverse group of hands reaching towards the center, each one holding an olive branch. The background should be a calm, serene sky with realistic lighting to give depth. The color palette should consist of earthy tones like browns, greens, and blues to represent peace and harmony. Maintain a respectful atmosphere throughout the image. Exclude all text, captions, logos, watermarks, or words from the image.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_29_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_29_background_with_text.png",
+      "generated_at": "2025-09-11T16:26:15.132183",
+      "content_ready": true
+    },
+    "2025-11-30": {
+      "date": "2025-11-30",
+      "original_holidays": [
+        {
+          "holiday_id": 20776,
+          "name": "First Sunday of Advent",
+          "date": "2025-11-30",
+          "description": "undefined",
+          "occasion_id": 6682,
+          "country": "US",
+          "type": "Christian",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20777,
+          "name": "Day of Remembrance for all Victims of Chemical Warfare",
+          "date": "2025-11-30",
+          "description": "undefined",
+          "occasion_id": 6679,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "First Sunday of Advent",
+      "tone_category": "Festive",
+      "caption": "The start of the holiday season is here! First Sunday of Advent marks the beginning of a time of anticipation and joy leading up to Christmas.",
+      "image_prompt": "Generate an Instagram-styled, square format image capturing the festive spirit of the First Sunday of Advent. Visualize a cozy home atmosphere with an Advent wreath on a rustic table, four candles with one lit symbolizing hope. The room is gently illuminated by the warm candlelight. In the background, subtle hints of a Christmas tree and holiday decorations. Use soft, warm color palette dominated by greens, reds, and golds. Ensure realistic lighting to highlight the warmth of the scene. Exclude any text, captions, logos, watermarks, or words from the image.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_30_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_30_background_with_text.png",
+      "generated_at": "2025-09-11T16:26:42.057567",
+      "content_ready": true
+    },
+    "2025-12-01": {
+      "date": "2025-12-01",
+      "original_holidays": [
+        {
+          "holiday_id": 20778,
+          "name": "World AIDS Day",
+          "date": "2025-12-01",
+          "description": "undefined",
+          "occasion_id": 6680,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20779,
+          "name": "Cyber Monday",
+          "date": "2025-12-01",
+          "description": "undefined",
+          "occasion_id": 6675,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20780,
+          "name": "Rosa Parks Day",
+          "date": "2025-12-01",
+          "description": "undefined",
+          "occasion_id": 6253,
+          "country": "US",
+          "type": "Local Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20781,
+          "name": "Rosa Parks Day",
+          "date": "2025-12-01",
+          "description": "undefined",
+          "occasion_id": 6253,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World AIDS Day",
+      "tone_category": "Respectful",
+      "caption": "Today we stand in unity and remembrance for those affected by HIV and AIDS. Join us in spreading awareness on World AIDS Day.",
+      "image_prompt": "Generate an image in a square format for Instagram. The image should be respectful and solemn, focusing on the theme of unity and remembrance. The color theme should be primarily red, inspired by the red ribbon symbol of AIDS awareness. The composition should depict diverse hands holding a large, beautifully textured red ribbon. The background should be a soft, blurred crowd with candles, indicating a vigil or remembrance. The lighting should be soft and cinematic, with the focus on the ribbon and the hands holding it. The image should not contain any text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_12_01_background.png",
+      "final_image_path": "holiday_images/holiday_2025_12_01_background_with_text.png",
+      "generated_at": "2025-09-11T16:27:03.945372",
+      "content_ready": true
+    }
+  }
+}

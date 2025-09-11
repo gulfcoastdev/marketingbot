@@ -1,0 +1,112 @@
+[
+  {
+    "holiday_id": 20640,
+    "name": "International Day for South-South Cooperation",
+    "date": "2025-09-12",
+    "description": "undefined",
+    "occasion_id": 6561,
+    "country": "US",
+    "type": "United Nations Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20641,
+    "name": "International Programmers' Day",
+    "date": "2025-09-13",
+    "description": "undefined",
+    "occasion_id": 6226,
+    "country": "US",
+    "type": "Worldwide Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20642,
+    "name": "Constitution Commemoration Day",
+    "date": "2025-09-14",
+    "description": "undefined",
+    "occasion_id": 6570,
+    "country": "US",
+    "type": "State Holiday",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20643,
+    "name": "International Day of Democracy",
+    "date": "2025-09-15",
+    "description": "undefined",
+    "occasion_id": 6562,
+    "country": "US",
+    "type": "United Nations Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20644,
+    "name": "First Day of National Hispanic Heritage Month",
+    "date": "2025-09-15",
+    "description": "undefined",
+    "occasion_id": 6563,
+    "country": "US",
+    "type": "Annual Monthly Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20645,
+    "name": "International Day for the Preservation of the Ozone Layer",
+    "date": "2025-09-16",
+    "description": "undefined",
+    "occasion_id": 6566,
+    "country": "US",
+    "type": "United Nations Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20646,
+    "name": "World Patient Safety Day",
+    "date": "2025-09-17",
+    "description": "undefined",
+    "occasion_id": 6568,
+    "country": "US",
+    "type": "United Nations Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20647,
+    "name": "Constitution Day and Citizenship Day",
+    "date": "2025-09-17",
+    "description": "undefined",
+    "occasion_id": 6569,
+    "country": "US",
+    "type": "Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20648,
+    "name": "International Equal Pay Day",
+    "date": "2025-09-18",
+    "description": "undefined",
+    "occasion_id": 6572,
+    "country": "US",
+    "type": "United Nations Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  },
+  {
+    "holiday_id": 20649,
+    "name": "Air Force Birthday",
+    "date": "2025-09-18",
+    "description": "undefined",
+    "occasion_id": 6573,
+    "country": "US",
+    "type": "Observance",
+    "created_at": "2025-01-02 08:36:59",
+    "updated_at": null
+  }
+]
