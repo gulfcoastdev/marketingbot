@@ -1,0 +1,53 @@
+[
+  {
+    "text": "\ud83c\udf89 Exciting news! Check out our latest holiday content!",
+    "platform": "twitter",
+    "post_type": "image",
+    "media": [
+      {
+        "url": "holiday_images/holiday_2025_12_01_background_with_text.png",
+        "type": "image",
+        "alt_text": "World AIDS Day awareness image"
+      }
+    ],
+    "hashtags": [
+      "WorldAIDSDay",
+      "Awareness",
+      "Unity"
+    ],
+    "scheduled_time": null
+  },
+  {
+    "text": "Happy Thanksgiving! \ud83e\udd83 Grateful for our amazing community!",
+    "platform": "facebook",
+    "post_type": "image",
+    "media": [
+      {
+        "url": "holiday_images/holiday_2025_11_27_background_with_text.png",
+        "type": "image"
+      }
+    ],
+    "hashtags": [
+      "Thanksgiving",
+      "Gratitude"
+    ],
+    "scheduled_time": "2025-11-27T09:00:00"
+  },
+  {
+    "text": "Starting the holiday season with hope and anticipation! \u2728",
+    "platform": "instagram",
+    "post_type": "image",
+    "media": [
+      {
+        "url": "holiday_images/holiday_2025_11_30_background_with_text.png",
+        "type": "image"
+      }
+    ],
+    "hashtags": [
+      "Advent",
+      "Holidays",
+      "Hope"
+    ],
+    "scheduled_time": "2025-11-30T08:00:00"
+  }
+]

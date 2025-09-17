@@ -1,0 +1,2022 @@
+{
+  "generated_at": "2025-09-13T20:17:15.915790",
+  "total_dates": 47,
+  "holidays_by_date": {
+    "2025-09-13": {
+      "date": "2025-09-13",
+      "original_holidays": [
+        {
+          "holiday_id": 20641,
+          "name": "International Programmers' Day",
+          "date": "2025-09-13",
+          "description": "undefined",
+          "occasion_id": 6226,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Programmers' Day",
+      "tone_category": "Respectful",
+      "caption": "Celebrating the brains behind our digital world, it's International Programmers' Day! 🎉💻",
+      "image_prompt": "A respectful and inspiring, photo-realistic image for social media. The scene is a dimly lit room with a soft blue hue, symbolizing late-night coding sessions. A focused programmer sits at a desk, hands on a glowing keyboard, with lines of code reflecting on their face from the screen. Lighting highlights the dedication and intensity of their work. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "assets/images/holiday_2025_09_13_background.png",
+      "final_image_path": "assets/images/holiday_2025_09_13_background_with_text.png",
+      "generated_at": "2025-09-12T09:41:45.845512",
+      "content_ready": true
+    },
+    "2025-09-14": {
+      "date": "2025-09-14",
+      "original_holidays": [
+        {
+          "holiday_id": 20642,
+          "name": "Constitution Commemoration Day",
+          "date": "2025-09-14",
+          "description": "undefined",
+          "occasion_id": 6570,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Constitution Commemoration Day",
+      "tone_category": "Respectful",
+      "caption": "Today we honor Constitution Commemoration Day, a time to reflect on the foundation of our nation. #ConstitutionDay",
+      "image_prompt": "A solemn, photo-realistic image with a balanced palette of dark blues and whites. At a wooden table, figures dressed in 18th-century attire gather, one signing an antique parchment representing the Constitution. An inkwell and quill rest nearby. Behind them, a softly lit, blurred U.S. flag sets the tone. Lighting is natural and casts delicate shadows. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "assets/images/holiday_2025_09_14_background.png",
+      "final_image_path": "assets/images/holiday_2025_09_14_background_with_text.png",
+      "generated_at": "2025-09-12T09:42:07.760656",
+      "content_ready": true
+    },
+    "2025-09-15": {
+      "date": "2025-09-15",
+      "original_holidays": [
+        {
+          "holiday_id": 20643,
+          "name": "International Day of Democracy",
+          "date": "2025-09-15",
+          "description": "undefined",
+          "occasion_id": 6562,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20644,
+          "name": "First Day of National Hispanic Heritage Month",
+          "date": "2025-09-15",
+          "description": "undefined",
+          "occasion_id": 6563,
+          "country": "US",
+          "type": "Annual Monthly Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "First Day of National Hispanic Heritage Month",
+      "tone_category": "Festive",
+      "caption": "Celebrating the beginning of National Hispanic Heritage Month today! Let's honor the rich cultures, histories and contributions of Hispanic Americans. Also, it's International Day of Democracy - a day to cherish our democratic values.",
+      "image_prompt": "A vibrant, photo-realistic social media image capturing the festive spirit of National Hispanic Heritage Month. A lively street festival with people in colorful traditional clothing dancing, musicians playing, and families sharing food. Bright, balanced colors reflect the diversity and richness of Hispanic heritage. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "assets/images/holiday_2025_09_15_background.png",
+      "final_image_path": "assets/images/holiday_2025_09_15_background_with_text.png",
+      "generated_at": "2025-09-12T09:42:32.594064",
+      "content_ready": true
+    },
+    "2025-09-16": {
+      "date": "2025-09-16",
+      "original_holidays": [
+        {
+          "holiday_id": 20645,
+          "name": "International Day for the Preservation of the Ozone Layer",
+          "date": "2025-09-16",
+          "description": "undefined",
+          "occasion_id": 6566,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day for the Preservation of the Ozone Layer",
+      "tone_category": "Respectful",
+      "caption": "Today is International Day for the Preservation of the Ozone Layer. Let's do our part to protect our planet. #OzoneLayerDay",
+      "image_prompt": "A cinematic, photo-realistic image showing a balanced view of Earth from space. Inside a spacecraft, astronauts look out through a large window at the glowing blue-green planet. The atmosphere around Earth is subtly illuminated, symbolizing the protective ozone layer. The background is the deep black of space. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "assets/images/holiday_2025_09_16_background.png",
+      "final_image_path": "assets/images/holiday_2025_09_16_background_with_text.png",
+      "generated_at": "2025-09-12T09:42:51.351105",
+      "content_ready": true
+    },
+    "2025-09-17": {
+      "date": "2025-09-17",
+      "original_holidays": [
+        {
+          "holiday_id": 20646,
+          "name": "World Patient Safety Day",
+          "date": "2025-09-17",
+          "description": "undefined",
+          "occasion_id": 6568,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20647,
+          "name": "Constitution Day and Citizenship Day",
+          "date": "2025-09-17",
+          "description": "undefined",
+          "occasion_id": 6569,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Constitution Day and Citizenship Day",
+      "tone_category": "Respectful",
+      "caption": "Today, we celebrate Constitution Day and Citizenship Day, a time to reflect on the rights and responsibilities of U.S. citizens. Let's also pay heed to World Patient Safety Day and promote healthcare safety.",
+      "image_prompt": "A respectful, photo-realistic image of diverse new citizens taking the oath of allegiance. In front of them lies a faded parchment with the Constitution written on it. Behind them, a U.S. flag waves gently. The color palette includes earthy tones, blues, and reds, with natural soft lighting to evoke solemnity. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "assets/images/holiday_2025_09_17_background.png",
+      "final_image_path": "assets/images/holiday_2025_09_17_background_with_text.png",
+      "generated_at": "2025-09-12T09:43:16.211427",
+      "content_ready": true
+    },
+    "2025-09-18": {
+      "date": "2025-09-18",
+      "original_holidays": [
+        {
+          "holiday_id": 20648,
+          "name": "International Equal Pay Day",
+          "date": "2025-09-18",
+          "description": "undefined",
+          "occasion_id": 6572,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20649,
+          "name": "Air Force Birthday",
+          "date": "2025-09-18",
+          "description": "undefined",
+          "occasion_id": 6573,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Equal Pay Day",
+      "tone_category": "Respectful",
+      "caption": "Today we observe International Equal Pay Day, a United Nations observance aimed at promoting gender pay equality. Let's also celebrate the US Air Force Birthday. #EqualPayDay #AirForceBirthday",
+      "image_prompt": "A respectful, photo-realistic image at dawn. A U.S. Air Force officer stands under a pastel sky of lavender, light blue, and peach tones. Beside them, a symbolic pair of scales with equal amounts of money represents fairness. In the distance, a fighter jet silhouette crosses the horizon. The scene is bathed in realistic sunrise light. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:45:31.203958",
+      "content_ready": false
+    },
+    "2025-09-19": {
+      "date": "2025-09-19",
+      "original_holidays": [
+        {
+          "holiday_id": 20650,
+          "name": "National POW/MIA Recognition Day",
+          "date": "2025-09-19",
+          "description": "undefined",
+          "occasion_id": 6564,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "National POW/MIA Recognition Day",
+      "tone_category": "Respectful",
+      "caption": "Today we honor and remember our heroes on National POW/MIA Recognition Day. Let's pay our respects and never forget their sacrifice.",
+      "image_prompt": "A solemn, photo-realistic image for National POW/MIA Recognition Day. At a dining table, an empty chair is set with a single white candle glowing beside it. Behind, faint silhouettes of armed soldiers fade into the background shadows, symbolizing the missing. The atmosphere uses muted grays and blacks, with soft natural lighting. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:45:38.255814",
+      "content_ready": false
+    },
+    "2025-09-21": {
+      "date": "2025-09-21",
+      "original_holidays": [
+        {
+          "holiday_id": 20651,
+          "name": "International Day of Peace",
+          "date": "2025-09-21",
+          "description": "undefined",
+          "occasion_id": 6575,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day of Peace",
+      "tone_category": "Respectful",
+      "caption": "Today, let's honor the International Day of Peace. A day dedicated to strengthening the ideals of peace, both within and among all nations and peoples. 🕊️",
+      "image_prompt": "A serene, photo-realistic sunset scene shifting from soft pinks to deep purples. In the foreground, a person gently releases a dove into the sky, symbolizing peace. The lighting is natural, with cinematic depth creating a calm and respectful atmosphere. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:45:46.210446",
+      "content_ready": false
+    },
+    "2025-09-22": {
+      "date": "2025-09-22",
+      "original_holidays": [
+        {
+          "holiday_id": 20652,
+          "name": "Navratri",
+          "date": "2025-09-22",
+          "description": "undefined",
+          "occasion_id": 6625,
+          "country": "US",
+          "type": "Hindu Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20653,
+          "name": "American Indian Day",
+          "date": "2025-09-22",
+          "description": "undefined",
+          "occasion_id": 6584,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20654,
+          "name": "Emancipation Day",
+          "date": "2025-09-22",
+          "description": "undefined",
+          "occasion_id": 6354,
+          "country": "US",
+          "type": "Local Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20655,
+          "name": "September Equinox",
+          "date": "2025-09-22",
+          "description": "undefined",
+          "occasion_id": 6581,
+          "country": "US",
+          "type": "Season",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Navratri",
+      "tone_category": "Festive",
+      "caption": "Today, we celebrate Navratri, a vibrant Hindu festival of dance and worship. It's also American Indian Day, Emancipation Day and the September Equinox. Let's honor all these special moments together.",
+      "image_prompt": "A festive, photo-realistic Navratri scene. A group of men and women in vibrant attire perform Garba dance beneath a star-filled night sky and glowing moon. Lanterns hanging from trees cast a soft, diffused glow. The colors include warm reds, oranges, and yellows balanced against cool night blues and purples. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:45:52.398500",
+      "content_ready": false
+    },
+    "2025-09-23": {
+      "date": "2025-09-23",
+      "original_holidays": [
+        {
+          "holiday_id": 20656,
+          "name": "Rosh Hashana",
+          "date": "2025-09-23",
+          "description": "undefined",
+          "occasion_id": 6565,
+          "country": "US",
+          "type": "Jewish holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20657,
+          "name": "International Day of Sign Languages",
+          "date": "2025-09-23",
+          "description": "undefined",
+          "occasion_id": 6578,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20658,
+          "name": "International Celebrate Bisexuality Day",
+          "date": "2025-09-23",
+          "description": "undefined",
+          "occasion_id": 6579,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20659,
+          "name": "Rosh Hashana",
+          "date": "2025-09-23",
+          "description": "undefined",
+          "occasion_id": 6565,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Rosh Hashana",
+      "tone_category": "Festive",
+      "caption": "Today we celebrate Rosh Hashana, the Jewish New Year. But let's not forget it's also International Day of Sign Languages. Recognize and respect all forms of diversity today.",
+      "image_prompt": "A warm, photo-realistic family gathering for Rosh Hashanah. They share apples dipped in honey around a cozy dining table. The home is softly lit, decorated with fall leaves and warm-toned flowers. Subtle inclusivity symbols appear in decor: a piece with Bisexuality pride flag colors and a hand sign representing sign language. The mood is inviting and festive. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:00.415563",
+      "content_ready": false
+    },
+    "2025-09-25": {
+      "date": "2025-09-25",
+      "original_holidays": [
+        {
+          "holiday_id": 20660,
+          "name": "World Maritime Day",
+          "date": "2025-09-25",
+          "description": "undefined",
+          "occasion_id": 6589,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Maritime Day",
+      "tone_category": "Respectful",
+      "caption": "Today is World Maritime Day, a day to recognize the importance of shipping safety, maritime security, and the marine environment. This United Nations observance is a nod to our ocean's vital role in our lives. #WorldMaritimeDay",
+      "image_prompt": "A serene, photo-realistic ocean scene at dawn. The horizon glows softly as the sun rises over calm waters. In the distance, a large cargo ship silhouette marks the maritime industry. Cool blues of the water blend with warm oranges of the sky. Subtle texture adds realism to the water. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:07.303615",
+      "content_ready": false
+    },
+    "2025-09-26": {
+      "date": "2025-09-26",
+      "original_holidays": [
+        {
+          "holiday_id": 20661,
+          "name": "International Day for the Total Elimination of Nuclear Weapons",
+          "date": "2025-09-26",
+          "description": "undefined",
+          "occasion_id": 6586,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20662,
+          "name": "Native American Day",
+          "date": "2025-09-26",
+          "description": "undefined",
+          "occasion_id": 6415,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20663,
+          "name": "American Indian Heritage Day",
+          "date": "2025-09-26",
+          "description": "undefined",
+          "occasion_id": 6594,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20664,
+          "name": "Michigan Indian Day",
+          "date": "2025-09-26",
+          "description": "undefined",
+          "occasion_id": 6577,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Native American Day",
+      "tone_category": "Respectful",
+      "caption": "Today we honor Native American Day, a time to celebrate the rich and diverse cultures, traditions, and histories of Native people. Also, it's American Indian Heritage Day, Michigan Indian Day, and International Day for the Total Elimination of Nuclear Weapons.",
+      "image_prompt": "A respectful, photo-realistic scene at twilight in the desert. A Native American family, dressed traditionally, gathers around a glowing fire. Their silhouettes and attire are softly lit by the firelight, which casts gentle shadows. In the background, symbolic elements like a dreamcatcher or totem pole appear subtly. The sky transitions from deep purples to soft oranges. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:15.004205",
+      "content_ready": false
+    },
+    "2025-09-27": {
+      "date": "2025-09-27",
+      "original_holidays": [
+        {
+          "holiday_id": 20665,
+          "name": "World Tourism Day",
+          "date": "2025-09-27",
+          "description": "undefined",
+          "occasion_id": 6587,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20666,
+          "name": "Public Lands Day",
+          "date": "2025-09-27",
+          "description": "undefined",
+          "occasion_id": 6428,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20667,
+          "name": "National Public Lands Day",
+          "date": "2025-09-27",
+          "description": "undefined",
+          "occasion_id": 6580,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Tourism Day",
+      "tone_category": "Playful",
+      "caption": "Happy World Tourism Day! Let's celebrate by exploring the beauty of our planet. Don't forget, it's also National Public Lands Day and Public Lands Day in the US. #WorldTourismDay #PublicLandsDay",
+      "image_prompt": "A playful, photo-realistic image featuring a globe at the center surrounded by iconic landmarks like the Eiffel Tower, Pyramids, Statue of Liberty, and Great Wall of China. Around the globe, diverse happy travelers stand together, symbolizing unity in exploration. Bright colors evoke travel and adventure. Lighting is natural with cinematic depth. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:22.150638",
+      "content_ready": false
+    },
+    "2025-09-28": {
+      "date": "2025-09-28",
+      "original_holidays": [
+        {
+          "holiday_id": 20668,
+          "name": "International Day for Universal Access to Information",
+          "date": "2025-09-28",
+          "description": "undefined",
+          "occasion_id": 6590,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20669,
+          "name": "World Rabies Day",
+          "date": "2025-09-28",
+          "description": "undefined",
+          "occasion_id": 6591,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20670,
+          "name": "Gold Star Mother's Day",
+          "date": "2025-09-28",
+          "description": "undefined",
+          "occasion_id": 6582,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Gold Star Mother's Day",
+      "tone_category": "Respectful",
+      "caption": "Today, we pay our respects to Gold Star Mothers. It's also the International Day for Universal Access to Information and World Rabies Day. Let's honor, learn, and protect.",
+      "image_prompt": "A solemn, photo-realistic sunrise over a lush field. In the foreground, a mother silhouette holds a gold star, gazing into the distance. The colors transition from cool purples and blues of night to warm oranges and yellows of dawn. The mood conveys remembrance and honor. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:28.498742",
+      "content_ready": false
+    },
+    "2025-09-29": {
+      "date": "2025-09-29",
+      "original_holidays": [
+        {
+          "holiday_id": 20671,
+          "name": "International Day of Awareness of Food Loss and Waste",
+          "date": "2025-09-29",
+          "description": "undefined",
+          "occasion_id": 6592,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20672,
+          "name": "World Heart Day",
+          "date": "2025-09-29",
+          "description": "undefined",
+          "occasion_id": 6593,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Heart Day",
+      "tone_category": "Respectful",
+      "caption": "Today is World Heart Day, a global event focused on heart health. But let's also be aware of the International Day of Awareness of Food Loss and Waste. #WorldHeartDay #NoFoodWaste",
+      "image_prompt": "A striking, photo-realistic image of a healthy, vibrant heart illuminated by soft respectful light. Warm reds and pinks highlight the heart, while cool blues and grays shape the background. Subtle motion effects create a gentle heartbeat glow. The atmosphere is calm and cinematic. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:36.088380",
+      "content_ready": false
+    },
+    "2025-09-30": {
+      "date": "2025-09-30",
+      "original_holidays": [
+        {
+          "holiday_id": 20673,
+          "name": "International Translation Day",
+          "date": "2025-09-30",
+          "description": "undefined",
+          "occasion_id": 6596,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Translation Day",
+      "tone_category": "Respectful",
+      "caption": "Today is International Translation Day! Let's honor all the translators who are bridging gaps between cultures and languages.",
+      "image_prompt": "A serene, photo-realistic image symbolizing communication and unity. Two hands shake, each painted with different national flags. A globe and dictionary rest on a nearby table, reinforcing the theme of worldwide connection. Colors emphasize blues and whites for peace. Lighting is natural and realistic with depth. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:42.827006",
+      "content_ready": false
+    },
+    "2025-10-01": {
+      "date": "2025-10-01",
+      "original_holidays": [
+        {
+          "holiday_id": 20674,
+          "name": "International Day of Older Persons",
+          "date": "2025-10-01",
+          "description": "undefined",
+          "occasion_id": 6597,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20675,
+          "name": "World Vegetarian Day",
+          "date": "2025-10-01",
+          "description": "undefined",
+          "occasion_id": 6598,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day of Older Persons",
+      "tone_category": "Respectful",
+      "caption": "Today we honor and celebrate the wisdom and contributions of our elders on International Day of Older Persons. Also, let's appreciate our green diet friends as it's World Vegetarian Day too!",
+      "image_prompt": "A dignified, photo-realistic image reflecting International Day of Older Persons. An older couple sits together, hands intertwined with visible lines of age, sharing a quiet moment. On a nearby table, a vegetarian meal subtly nods to World Vegetarian Day. Lighting captures the warmth of a calm afternoon, with soft blues, grays, and browns. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:50.799975",
+      "content_ready": false
+    },
+    "2025-10-02": {
+      "date": "2025-10-02",
+      "original_holidays": [
+        {
+          "holiday_id": 20676,
+          "name": "Dussehra",
+          "date": "2025-10-02",
+          "description": "undefined",
+          "occasion_id": 6633,
+          "country": "US",
+          "type": "Hindu Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20677,
+          "name": "Yom Kippur",
+          "date": "2025-10-02",
+          "description": "undefined",
+          "occasion_id": 6583,
+          "country": "US",
+          "type": "Jewish holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20678,
+          "name": "International Day of Non-Violence",
+          "date": "2025-10-02",
+          "description": "undefined",
+          "occasion_id": 6600,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20679,
+          "name": "Yom Kippur",
+          "date": "2025-10-02",
+          "description": "undefined",
+          "occasion_id": 6583,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Yom Kippur",
+      "tone_category": "Respectful",
+      "caption": "Today, we solemnly observe Yom Kippur, the holiest day in Judaism. We also acknowledge Dussehra, a significant Hindu festival, and the International Day of Non-Violence. May our collective reflections lead to peace and understanding.",
+      "image_prompt": "A tranquil, photo-realistic twilight scene. An empty chair and a softly glowing candle sit in the foreground, symbolizing reflection. In the distance, a dove soars peacefully against a sky of purples and blues. Lighting is natural and solemn. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:46:56.865521",
+      "content_ready": false
+    },
+    "2025-10-04": {
+      "date": "2025-10-04",
+      "original_holidays": [
+        {
+          "holiday_id": 20680,
+          "name": "Feast of St Francis of Assisi",
+          "date": "2025-10-04",
+          "description": "undefined",
+          "occasion_id": 6603,
+          "country": "US",
+          "type": "Christian",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Feast of St Francis of Assisi",
+      "tone_category": "Festive",
+      "caption": "Today is the Feast of St Francis of Assisi, a time for reflection and gratitude. Let's honor his teachings and make the world a better place.",
+      "image_prompt": "A serene, photo-realistic church interior lit by candlelight. In the foreground, a statue of St. Francis of Assisi is surrounded by animals, symbolizing his love for all creatures. Warm golden light highlights the details of the space. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:47:02.604689",
+      "content_ready": false
+    },
+    "2025-10-05": {
+      "date": "2025-10-05",
+      "original_holidays": [
+        {
+          "holiday_id": 20681,
+          "name": "World Teachers' Day",
+          "date": "2025-10-05",
+          "description": "undefined",
+          "occasion_id": 6604,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Teachers' Day",
+      "tone_category": "Respectful",
+      "caption": "Today we honor all educators on World Teachers' Day. Let's celebrate the inspiring individuals who shape our futures. #WorldTeachersDay",
+      "image_prompt": "A respectful, photo-realistic classroom scene. Scattered books and an apple rest on desks, with a chalkboard in the background. In the foreground, a teacher’s silhouette gazes at the empty seats, symbolizing dedication. Soft, warm lighting creates a nostalgic and inspiring tone. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:49:02.644299",
+      "content_ready": false
+    },
+    "2025-10-06": {
+      "date": "2025-10-06",
+      "original_holidays": [
+        {
+          "holiday_id": 20682,
+          "name": "World Habitat Day",
+          "date": "2025-10-06",
+          "description": "undefined",
+          "occasion_id": 6599,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20683,
+          "name": "World Cerebral Palsy Day",
+          "date": "2025-10-06",
+          "description": "undefined",
+          "occasion_id": 6606,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20684,
+          "name": "Frances Xavier Cabrini Day",
+          "date": "2025-10-06",
+          "description": "undefined",
+          "occasion_id": 6601,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20685,
+          "name": "German American Day",
+          "date": "2025-10-06",
+          "description": "undefined",
+          "occasion_id": 6607,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20686,
+          "name": "Child Health Day",
+          "date": "2025-10-06",
+          "description": "undefined",
+          "occasion_id": 6602,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Habitat Day",
+      "tone_category": "Respectful",
+      "caption": "Today we respect and recognize World Habitat Day, a call to action for adequate shelter for all. Also, it's World Cerebral Palsy Day, Frances Xavier Cabrini Day, German American Day, and Child Health Day. A day full of observances!",
+      "image_prompt": "A respectful, photo-realistic image showing diverse habitats across the world, blending urban skylines with rural villages. In the foreground, diverse families stand together, symbolizing shelter and unity. Earth tones, blues, and greens dominate the palette. Lighting is natural, with sunrise or sunset adding hope. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:49:13.416680",
+      "content_ready": false
+    },
+    "2025-10-07": {
+      "date": "2025-10-07",
+      "original_holidays": [
+        {
+          "holiday_id": 20687,
+          "name": "First Day of Sukkot",
+          "date": "2025-10-07",
+          "description": "undefined",
+          "occasion_id": 6595,
+          "country": "US",
+          "type": "Jewish holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "First Day of Sukkot",
+      "tone_category": "Festive",
+      "caption": "Today, we celebrate the First Day of Sukkot, a joyous Jewish holiday commemorating the end of the harvest season. Let's embrace the spirit of gratitude and togetherness.",
+      "image_prompt": "A festive, photo-realistic image of Sukkot. A traditional Sukkah decorated with fruits and vegetables stands under a starry sky. Families gather inside, sharing food and conversation. The colors are earthy, with browns, greens, and golds highlighted by natural lighting. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:49:24.423890",
+      "content_ready": false
+    },
+    "2025-10-08": {
+      "date": "2025-10-08",
+      "original_holidays": [
+        {
+          "holiday_id": 20688,
+          "name": "International Day for Natural Disaster Reduction",
+          "date": "2025-10-08",
+          "description": "undefined",
+          "occasion_id": 6620,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day for Natural Disaster Reduction",
+      "tone_category": "Respectful",
+      "caption": "Today, we observe the International Day for Natural Disaster Reduction. Let's take a moment to appreciate the power of nature, and the importance of being prepared. #DisasterReduction",
+      "image_prompt": "A respectful, photo-realistic image for International Day for Natural Disaster Reduction. A lone figure stands on a hill, observing a serene landscape where a distant storm cloud looms over calm seas. The palette features subdued blues, greens, and grays. Cinematic depth and subtle motion effects convey preparedness and respect for nature. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:49:34.253642",
+      "content_ready": false
+    },
+    "2025-10-09": {
+      "date": "2025-10-09",
+      "original_holidays": [
+        {
+          "holiday_id": 20689,
+          "name": "World Post Day",
+          "date": "2025-10-09",
+          "description": "undefined",
+          "occasion_id": 6611,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20690,
+          "name": "World Sight Day",
+          "date": "2025-10-09",
+          "description": "undefined",
+          "occasion_id": 6623,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20691,
+          "name": "Leif Erikson Day",
+          "date": "2025-10-09",
+          "description": "undefined",
+          "occasion_id": 6612,
+          "country": "US",
+          "type": "Local Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20692,
+          "name": "Leif Erikson Day",
+          "date": "2025-10-09",
+          "description": "undefined",
+          "occasion_id": 6612,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Sight Day",
+      "tone_category": "Respectful",
+      "caption": "Today we recognize World Sight Day, raising global awareness of blindness and vision impairment. Also, don't forget it's World Post Day and Leif Erikson Day. Let's celebrate and spread awareness!",
+      "image_prompt": "A serene, photo-realistic image with a palette of soft blues and whites. A blind person with a seeing cane walks across a gently lit space, accompanied by symbolic elements like glasses and an eye motif in the environment. The atmosphere is balanced and respectful. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:49:42.222685",
+      "content_ready": false
+    },
+    "2025-10-10": {
+      "date": "2025-10-10",
+      "original_holidays": [
+        {
+          "holiday_id": 20693,
+          "name": "World Mental Health Day",
+          "date": "2025-10-10",
+          "description": "undefined",
+          "occasion_id": 6619,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Mental Health Day",
+      "tone_category": "Respectful",
+      "caption": "Today is World Mental Health Day, a time to raise awareness and educate about mental health issues. Let's look out for each other and continue the conversation about mental health.",
+      "image_prompt": "A respectful, photo-realistic social media image. A diverse group of people stand together in unity under a calm blue-and-white sky. The atmosphere is peaceful, with realistic soft lighting and a gentle breeze subtly moving their clothes. The mood conveys support and inclusion. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:49:51.673148",
+      "content_ready": false
+    },
+    "2025-10-11": {
+      "date": "2025-10-11",
+      "original_holidays": [
+        {
+          "holiday_id": 20694,
+          "name": "World Migratory Bird Day",
+          "date": "2025-10-11",
+          "description": "undefined",
+          "occasion_id": 6417,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20695,
+          "name": "International Day of the Girl Child",
+          "date": "2025-10-11",
+          "description": "undefined",
+          "occasion_id": 6621,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20696,
+          "name": "Robert E. Lee's Birthday",
+          "date": "2025-10-11",
+          "description": "undefined",
+          "occasion_id": 6234,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20697,
+          "name": "Casimir Pulaski Day",
+          "date": "2025-10-11",
+          "description": "undefined",
+          "occasion_id": 6289,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day of the Girl Child",
+      "tone_category": "Respectful",
+      "caption": "Today we honor the International Day of the Girl Child to raise awareness of the unique challenges and potential of girls around the world. It's also World Migratory Bird Day, Robert E. Lee's Birthday, and Casimir Pulaski Day.",
+      "image_prompt": "A hopeful, photo-realistic sunrise scene. In the foreground, silhouettes of diverse girls stand together, looking toward the horizon. Warm, soft colors emphasize peaceful determination. Natural dramatic lighting highlights their figures and the horizon without oversaturation. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:49:59.703519",
+      "content_ready": false
+    },
+    "2025-10-12": {
+      "date": "2025-10-12",
+      "original_holidays": [
+        {
+          "holiday_id": 20698,
+          "name": "Chicago Marathon (Tentative Date)",
+          "date": "2025-10-12",
+          "description": "undefined",
+          "occasion_id": 6610,
+          "country": "US",
+          "type": "Sporting Event",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Chicago Marathon (Tentative Date)",
+      "tone_category": "Playful",
+      "caption": "Get your running shoes on, it's the tentative date for the Chicago Marathon! An event that brings together athletes from around the world. #ChicagoMarathon",
+      "image_prompt": "A vibrant, photo-realistic image of the Chicago Marathon. At the starting line, diverse runners gather with determination and excitement. The city skyline looms in the background, lit by balanced natural light. Subtle motion effects show the energy and anticipation of the race. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:50:09.799767",
+      "content_ready": false
+    },
+    "2025-10-13": {
+      "date": "2025-10-13",
+      "original_holidays": [
+        {
+          "holiday_id": 20699,
+          "name": "Last Day of Sukkot",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6605,
+          "country": "US",
+          "type": "Jewish holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20700,
+          "name": "Navy Birthday",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6624,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20701,
+          "name": "Columbus Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6613,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20702,
+          "name": "Columbus Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6613,
+          "country": "US",
+          "type": "Federal Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20703,
+          "name": "Columbus Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6613,
+          "country": "US",
+          "type": "State Legal Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20704,
+          "name": "Fraternal Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6614,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20705,
+          "name": "Yorktown Victory Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6615,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20706,
+          "name": "Discoverers’ Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6616,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20707,
+          "name": "Native American Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6415,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20708,
+          "name": "Native American Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6415,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20709,
+          "name": "Indigenous People's Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6618,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20710,
+          "name": "Indigenous People's Day (Tentative Date)",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6617,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20711,
+          "name": "Indigenous People's Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6618,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20712,
+          "name": "American Indian Heritage Day",
+          "date": "2025-10-13",
+          "description": "undefined",
+          "occasion_id": 6594,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Columbus Day",
+      "tone_category": "Respectful",
+      "caption": "Today is Columbus Day, a time to reflect on the complexities of history. But let's also remember it's Indigenous People's Day, Navy Birthday, and the Last Day of Sukkot. Celebrate responsibly!",
+      "image_prompt": "A solemn, photo-realistic seascape at dawn. Christopher Columbus' ship sails faintly in the mist, while on the shore, silhouettes of indigenous people are visible, symbolizing the multiple dimensions of the day. Muted blues dominate the palette, with cinematic depth. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-12T09:50:18.550971",
+      "content_ready": false
+    },
+    "2025-10-14": {
+      "date": "2025-10-14",
+      "original_holidays": [
+        {
+          "holiday_id": 20713,
+          "name": "Shmini Atzeret",
+          "date": "2025-10-14",
+          "description": "undefined",
+          "occasion_id": 6608,
+          "country": "US",
+          "type": "Jewish holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Shmini Atzeret",
+      "tone_category": "Festive",
+      "caption": "Today we come together to observe the Jewish holiday of Shmini Atzeret. A time of spiritual reflection and celebration.",
+      "image_prompt": "A warm, photo-realistic scene of Shmini Atzeret. A family gathers around a beautifully set dinner table in a softly lit room. Traditional symbols like the Star of David and a menorah with lit candles adorn the space. The palette is rich with golds, oranges, and reds. The atmosphere is solemn and respectful. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:09.431930",
+      "content_ready": false
+    },
+    "2025-10-15": {
+      "date": "2025-10-15",
+      "original_holidays": [
+        {
+          "holiday_id": 20714,
+          "name": "Simchat Torah",
+          "date": "2025-10-15",
+          "description": "undefined",
+          "occasion_id": 6609,
+          "country": "US",
+          "type": "Jewish holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20715,
+          "name": "International Day of Rural Women",
+          "date": "2025-10-15",
+          "description": "undefined",
+          "occasion_id": 6626,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20716,
+          "name": "White Cane Safety Day",
+          "date": "2025-10-15",
+          "description": "undefined",
+          "occasion_id": 6627,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Simchat Torah",
+      "tone_category": "Festive",
+      "caption": "Today we celebrate Simchat Torah, a joyous Jewish holiday marking the end of the annual cycle of Torah readings. But let's not forget it's also International Day of Rural Women and White Cane Safety Day. Cheers to the diversity of our celebrations!",
+      "image_prompt": "A festive, photo-realistic image for Simchat Torah. A beautifully illuminated Torah scroll with a silver crown and velvet cover is the centerpiece. Around it, jubilant people dance and rejoice. The background subtly hints at other holidays with a rural landscape for International Day of Rural Women and a white cane for White Cane Safety Day. Deep blues, radiant golds, and earthy browns dominate the palette. Realistic lighting enhances the depth. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:17.130332",
+      "content_ready": false
+    },
+    "2025-10-16": {
+      "date": "2025-10-16",
+      "original_holidays": [
+        {
+          "holiday_id": 20717,
+          "name": "World Food Day",
+          "date": "2025-10-16",
+          "description": "undefined",
+          "occasion_id": 6628,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20718,
+          "name": "Boss's Day",
+          "date": "2025-10-16",
+          "description": "undefined",
+          "occasion_id": 6629,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Food Day",
+      "tone_category": "Respectful",
+      "caption": "Today we're celebrating World Food Day, a day to raise awareness about hunger and strive for food security for all. Don't forget, it's also Boss's Day. Show some appreciation for your leaders too!",
+      "image_prompt": "A powerful, photo-realistic image for World Food Day. A globe is surrounded by diverse hands holding different types of food, symbolizing unity in nourishment. The hands reflect varied skin tones, representing all cultures. The background uses muted earth tones with soft, realistic lighting. The mood is warm, respectful, and inclusive. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:25.063237",
+      "content_ready": false
+    },
+    "2025-10-17": {
+      "date": "2025-10-17",
+      "original_holidays": [
+        {
+          "holiday_id": 20719,
+          "name": "International Day for the Eradication of Poverty",
+          "date": "2025-10-17",
+          "description": "undefined",
+          "occasion_id": 6630,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20720,
+          "name": "Alaska Day observed",
+          "date": "2025-10-17",
+          "description": "undefined",
+          "occasion_id": 7998,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day for the Eradication of Poverty",
+      "tone_category": "Respectful",
+      "caption": "Today is the International Day for the Eradication of Poverty, a day to reflect on the global efforts to overcome poverty. Also, it's Alaska Day observed for our friends in the 49th state. #EndPoverty #AlaskaDay",
+      "image_prompt": "A hopeful, photo-realistic image for International Day for the Eradication of Poverty. A world map forms the background, softly shaded in blues and greens. In the foreground, translucent silhouettes of diverse people help one another climb an upward sloping path. A gentle sunrise illuminates the horizon, symbolizing hope. Subtle textures add depth. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:32.725965",
+      "content_ready": false
+    },
+    "2025-10-18": {
+      "date": "2025-10-18",
+      "original_holidays": [
+        {
+          "holiday_id": 20721,
+          "name": "Alaska Day",
+          "date": "2025-10-18",
+          "description": "undefined",
+          "occasion_id": 6631,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20722,
+          "name": "Sweetest Day",
+          "date": "2025-10-18",
+          "description": "undefined",
+          "occasion_id": 6632,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Alaska Day",
+      "tone_category": "Respectful",
+      "caption": "Today we respectfully commemorate Alaska Day, marking the transfer of the territory from Russia to the US. Let's not forget to share a sweet moment as it's also Sweetest Day!",
+      "image_prompt": "A respectful, photo-realistic dawn scene in Alaska. The landscape shows snowy mountains, glaciers, and forests, with a moose silhouette in the distance. The soft hues of sunrise blend blues and whites with warm golden tones. Subtle textures evoke the crisp air. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:37.308364",
+      "content_ready": false
+    },
+    "2025-10-20": {
+      "date": "2025-10-20",
+      "original_holidays": [
+        {
+          "holiday_id": 20723,
+          "name": "Diwali/Deepavali",
+          "date": "2025-10-20",
+          "description": "undefined",
+          "occasion_id": 6655,
+          "country": "US",
+          "type": "Hindu Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20724,
+          "name": "World Statistics Day",
+          "date": "2025-10-20",
+          "description": "undefined",
+          "occasion_id": 7999,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Diwali/Deepavali",
+      "tone_category": "Festive",
+      "caption": "Today, we celebrate the vibrant festival of Diwali, a beacon of light in the darkness. Let's also acknowledge World Statistics Day, a tribute to data and its power.",
+      "image_prompt": "A festive, photo-realistic Diwali celebration. Diyas (oil lamps) line a traditional Indian courtyard, glowing warmly against rangoli patterns and marigold garlands. Families in colorful attire gather, their faces lit by the flickering light. The palette is warm with golds, reds, and oranges. Natural lighting emphasizes the glow and depth. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:42.721197",
+      "content_ready": false
+    },
+    "2025-10-24": {
+      "date": "2025-10-24",
+      "original_holidays": [
+        {
+          "holiday_id": 20725,
+          "name": "United Nations Day",
+          "date": "2025-10-24",
+          "description": "undefined",
+          "occasion_id": 6634,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20726,
+          "name": "World Development Information Day",
+          "date": "2025-10-24",
+          "description": "undefined",
+          "occasion_id": 6635,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "United Nations Day",
+      "tone_category": "Respectful",
+      "caption": "Today we honor United Nations Day, celebrating the organization's efforts for peace and progress worldwide. It's also World Development Information Day, highlighting the importance of international cooperation in development.",
+      "image_prompt": "A serene, photo-realistic image symbolizing United Nations Day. A softly glowing globe is encircled by diverse human silhouettes holding hands. The atmosphere is peaceful, with a palette of blues and whites. Natural lighting and cinematic depth emphasize harmony and unity. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:47.645948",
+      "content_ready": false
+    },
+    "2025-10-27": {
+      "date": "2025-10-27",
+      "original_holidays": [
+        {
+          "holiday_id": 20727,
+          "name": "World Day for Audiovisual Heritage",
+          "date": "2025-10-27",
+          "description": "undefined",
+          "occasion_id": 6636,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Day for Audiovisual Heritage",
+      "tone_category": "Respectful",
+      "caption": "Today we pay tribute to the World Day for Audiovisual Heritage. Let's appreciate the importance of preserving our shared audiovisual heritage!",
+      "image_prompt": "A nostalgic, photo-realistic image showing the evolution of audiovisual history. Old film reels, records, and tapes sit alongside a vintage camera and a modern digital one. A group of people admire the collection, lit by a soft warm glow. Sepia tones and muted blues emphasize memory and preservation. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:51.834403",
+      "content_ready": false
+    },
+    "2025-10-29": {
+      "date": "2025-10-29",
+      "original_holidays": [
+        {
+          "holiday_id": 20728,
+          "name": "World Stroke Day",
+          "date": "2025-10-29",
+          "description": "undefined",
+          "occasion_id": 6638,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Stroke Day",
+      "tone_category": "Respectful",
+      "caption": "Today we globally acknowledge World Stroke Day to raise awareness about the risks and impact of strokes. Let's educate ourselves and others to combat this worldwide health issue.",
+      "image_prompt": "A respectful, photo-realistic image for World Stroke Day. A diverse group of people join hands in a circle. At the center lies a red ribbon, softly glowing. The background uses soft blues and whites, with natural lighting highlighting the ribbon. The mood is solemn yet hopeful. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:58:56.571898",
+      "content_ready": false
+    },
+    "2025-10-31": {
+      "date": "2025-10-31",
+      "original_holidays": [
+        {
+          "holiday_id": 20729,
+          "name": "World Cities Day",
+          "date": "2025-10-31",
+          "description": "undefined",
+          "occasion_id": 6639,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20730,
+          "name": "Halloween",
+          "date": "2025-10-31",
+          "description": "undefined",
+          "occasion_id": 6640,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20731,
+          "name": "Nevada Day",
+          "date": "2025-10-31",
+          "description": "undefined",
+          "occasion_id": 6637,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Halloween",
+      "tone_category": "Festive",
+      "caption": "Boo! It's Halloween! But let's also give a shout out to World Cities Day and Nevada Day. #Halloween #WorldCitiesDay #NevadaDay",
+      "image_prompt": "A festive, photo-realistic Halloween scene in a suburban neighborhood at dusk. Children in diverse costumes trick-or-treat, glowing pumpkins line porches, and houses are decorated with spider webs and bats. The sky is deep blue and purple, with warm oranges from jack-o’-lanterns. A subtle fog adds mystery. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:59:03.826164",
+      "content_ready": false
+    },
+    "2025-11-01": {
+      "date": "2025-11-01",
+      "original_holidays": [
+        {
+          "holiday_id": 20732,
+          "name": "All Saints' Day",
+          "date": "2025-11-01",
+          "description": "undefined",
+          "occasion_id": 6641,
+          "country": "US",
+          "type": "Christian",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20733,
+          "name": "World Vegan Day",
+          "date": "2025-11-01",
+          "description": "undefined",
+          "occasion_id": 6642,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20734,
+          "name": "First Day of Native American Heritage Month",
+          "date": "2025-11-01",
+          "description": "undefined",
+          "occasion_id": 6643,
+          "country": "US",
+          "type": "Annual Monthly Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "All Saints' Day",
+      "tone_category": "Respectful",
+      "caption": "Honoring All Saints' Day today, a day of remembrance for all saints and martyrs. Also, let's not forget it's World Vegan Day and the First Day of Native American Heritage Month.",
+      "image_prompt": "A serene, photo-realistic church interior with stained glass casting multicolored light across the pews. In the foreground, a person lights a candle in remembrance, creating a warm glow. The atmosphere is solemn and respectful, with subdued warm tones. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": null,
+      "final_image_path": null,
+      "generated_at": "2025-09-13T10:59:11.913798",
+      "content_ready": false
+    },
+    "2025-11-20": {
+      "date": "2025-11-20",
+      "original_holidays": [
+        {
+          "holiday_id": 20757,
+          "name": "Universal Children's Day",
+          "date": "2025-11-20",
+          "description": "undefined",
+          "occasion_id": 6665,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20758,
+          "name": "Africa Industrialization Day",
+          "date": "2025-11-20",
+          "description": "undefined",
+          "occasion_id": 6666,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20759,
+          "name": "World Philosophy Day",
+          "date": "2025-11-20",
+          "description": "undefined",
+          "occasion_id": 6660,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20760,
+          "name": "Transgender Day of Remembrance",
+          "date": "2025-11-20",
+          "description": "undefined",
+          "occasion_id": 6667,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Universal Children's Day",
+      "tone_category": "Respectful",
+      "caption": "Today we honor Universal Children's Day, a time to promote the rights and wellbeing of children worldwide. Let's also take a moment to acknowledge Africa Industrialization Day, World Philosophy Day, and Transgender Day of Remembrance.",
+      "image_prompt": "A respectful, photo-realistic image of diverse children holding hands in a circle, symbolizing unity. The silhouettes glow against a serene light blue background with soft warm illumination radiating from the center, symbolizing hope. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_20_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_20_background_with_text.png",
+      "generated_at": "2025-09-12T09:40:19.768176",
+      "content_ready": true
+    },
+    "2025-11-21": {
+      "date": "2025-11-21",
+      "original_holidays": [
+        {
+          "holiday_id": 20761,
+          "name": "World Television Day",
+          "date": "2025-11-21",
+          "description": "undefined",
+          "occasion_id": 6668,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20762,
+          "name": "Fake Friday",
+          "date": "2025-11-21",
+          "description": "undefined",
+          "occasion_id": 8001,
+          "country": "US",
+          "type": "Worldwide Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World Television Day",
+      "tone_category": "Respectful",
+      "caption": "It's World Television Day! A day to celebrate the impact of television on our lives. Also, it's Fake Friday. Enjoy your day!",
+      "image_prompt": "A nostalgic, photo-realistic image of a cozy living room. A family gathers around a vintage television set, bathed in warm light. A comfy armchair, coffee table with cocoa, and subtle 20th-century decor create a tranquil, inviting mood. Colors are calm and balanced. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_21_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_21_background_with_text.png",
+      "generated_at": "2025-09-12T09:40:26.260259",
+      "content_ready": true
+    },
+    "2025-11-25": {
+      "date": "2025-11-25",
+      "original_holidays": [
+        {
+          "holiday_id": 20763,
+          "name": "International Day for the Elimination of Violence against Women",
+          "date": "2025-11-25",
+          "description": "undefined",
+          "occasion_id": 6674,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day for the Elimination of Violence against Women",
+      "tone_category": "Respectful",
+      "caption": "Today, we observe International Day for the Elimination of Violence against Women. Let's join hands to eradicate violence and promote equality.",
+      "image_prompt": "A solemn, photo-realistic image for International Day for the Elimination of Violence against Women. Silhouettes of diverse women stand firmly together, backlit by a soft glow. The palette features hues of purple, the official color of the day, with subtle textures and realistic lighting for depth. The mood emphasizes strength and unity. No text, captions, logos, watermarks, or words.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_25_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_25_background_with_text.png",
+      "generated_at": "2025-09-12T09:40:34.194289",
+      "content_ready": true
+    },
+    "2025-11-27": {
+      "date": "2025-11-27",
+      "original_holidays": [
+        {
+          "holiday_id": 20764,
+          "name": "Thanksgiving Day",
+          "date": "2025-11-27",
+          "description": "undefined",
+          "occasion_id": 6669,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20765,
+          "name": "Thanksgiving Day",
+          "date": "2025-11-27",
+          "description": "undefined",
+          "occasion_id": 6669,
+          "country": "US",
+          "type": "Federal Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Thanksgiving Day",
+      "tone_category": "Festive",
+      "caption": "Happy Thanksgiving Day! A day of gratitude and togetherness. Let's cherish the moments with our loved ones and remember to be grateful. #Thanksgiving",
+      "image_prompt": "A image capturing the warm, festive atmosphere of Thanksgiving. The background should display a rustic wooden table adorned with traditional festive food: a golden-brown roasted turkey, cranberry sauce, pumpkin pies, corn and autumnal vegetables. Soft, warm lighting casting gentle shadows to create depth and a cozy atmosphere. Include a family holding hands around the table, symbolizing togetherness and gratitude. Please exclude all text, captions, logos, watermarks, or words from the image.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_27_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_27_background_with_text.png",
+      "generated_at": "2025-09-12T09:40:41.956675",
+      "content_ready": true
+    },
+    "2025-11-28": {
+      "date": "2025-11-28",
+      "original_holidays": [
+        {
+          "holiday_id": 20766,
+          "name": "State Holiday",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6237,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20767,
+          "name": "Presidents' Day (Observed)",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 8002,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20768,
+          "name": "Lincoln's Birthday/Lincoln's Day",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6670,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20769,
+          "name": "Day After Thanksgiving",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6671,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20770,
+          "name": "Black Friday",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6672,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20771,
+          "name": "American Indian Heritage Day",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6594,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20772,
+          "name": "Native American Heritage Day",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6673,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20773,
+          "name": "Native American Heritage Day",
+          "date": "2025-11-28",
+          "description": "undefined",
+          "occasion_id": 6673,
+          "country": "US",
+          "type": "State Holiday",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "Native American Heritage Day",
+      "tone_category": "Respectful",
+      "caption": "Today we honor Native American Heritage Day, a chance to celebrate and respect the rich cultures, traditions, and histories of Native Americans. Let's also remember it's Black Friday and the day after Thanksgiving. Have a thoughtful day!",
+      "image_prompt": "Create a respectful and atmospheric image. The composition should include symbolic elements of Native American culture – perhaps a dream catcher against a setting sun, a landscape showcasing the beauty of native lands, or silhouettes of Native Americans on horseback. Maintain a natural color palette with deep oranges and purples for the sunset, and subtle earth tones. Use realistic lighting to highlight the details and add depth to the image. Exclude all text and logos.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_28_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_28_background_with_text.png",
+      "generated_at": "2025-09-12T09:38:32.285297",
+      "content_ready": true
+    },
+    "2025-11-29": {
+      "date": "2025-11-29",
+      "original_holidays": [
+        {
+          "holiday_id": 20774,
+          "name": "International Day of Solidarity with the Palestinian People",
+          "date": "2025-11-29",
+          "description": "undefined",
+          "occasion_id": 6677,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20775,
+          "name": "Nellie Tayloe Ross's Birthday",
+          "date": "2025-11-29",
+          "description": "undefined",
+          "occasion_id": 6678,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "International Day of Solidarity with the Palestinian People",
+      "tone_category": "Respectful",
+      "caption": "Today we observe the International Day of Solidarity with the Palestinian People. Let's also remember it's Nellie Tayloe Ross's Birthday, the first woman to serve as a U.S. governor.",
+      "image_prompt": "Create a image showing a serene sunset over the ancient cityscape of Jerusalem with olive branches in the foreground as a symbol of peace and solidarity. The lighting should be realistic and soft, creating a warm and respectful atmosphere. Color palette should emphasize earth tones. Exclude all text, captions, logos, watermarks, or words from the image.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_29_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_29_background_with_text.png",
+      "generated_at": "2025-09-12T09:40:56.253606",
+      "content_ready": true
+    },
+    "2025-11-30": {
+      "date": "2025-11-30",
+      "original_holidays": [
+        {
+          "holiday_id": 20776,
+          "name": "First Sunday of Advent",
+          "date": "2025-11-30",
+          "description": "undefined",
+          "occasion_id": 6682,
+          "country": "US",
+          "type": "Christian",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20777,
+          "name": "Day of Remembrance for all Victims of Chemical Warfare",
+          "date": "2025-11-30",
+          "description": "undefined",
+          "occasion_id": 6679,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "First Sunday of Advent",
+      "tone_category": "Festive",
+      "caption": "Today we light the first candle for the Sunday of Advent, marking the start of Christmas season. Let's also remember all victims of chemical warfare on this day of remembrance.",
+      "image_prompt": "A cozy, warm, and atmospheric image in a for social media. Focus on a family lighting the first candle on an Advent wreath, with soft candlelight casting shadows and a warm glow. The background should be filled with Christmas decor in soft reds, greens, and golds, creating a festive atmosphere. In the background, subtly incorporate white doves as a symbol of peace and remembrance. Avoid all text, captions, logos, watermarks, or words in the image.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_11_30_background.png",
+      "final_image_path": "holiday_images/holiday_2025_11_30_background_with_text.png",
+      "generated_at": "2025-09-12T09:41:06.952654",
+      "content_ready": true
+    },
+    "2025-12-01": {
+      "date": "2025-12-01",
+      "original_holidays": [
+        {
+          "holiday_id": 20778,
+          "name": "World AIDS Day",
+          "date": "2025-12-01",
+          "description": "undefined",
+          "occasion_id": 6680,
+          "country": "US",
+          "type": "United Nations Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20779,
+          "name": "Cyber Monday",
+          "date": "2025-12-01",
+          "description": "undefined",
+          "occasion_id": 6675,
+          "country": "US",
+          "type": "Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20780,
+          "name": "Rosa Parks Day",
+          "date": "2025-12-01",
+          "description": "undefined",
+          "occasion_id": 6253,
+          "country": "US",
+          "type": "Local Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        },
+        {
+          "holiday_id": 20781,
+          "name": "Rosa Parks Day",
+          "date": "2025-12-01",
+          "description": "undefined",
+          "occasion_id": 6253,
+          "country": "US",
+          "type": "State Observance",
+          "created_at": "2025-01-02 08:36:59",
+          "updated_at": null
+        }
+      ],
+      "selected_holiday": "World AIDS Day",
+      "tone_category": "Respectful",
+      "caption": "Today we commemorate World AIDS Day, uniting in the fight against HIV and remembering those who have died from AIDS-related illnesses. Also observed today: Cyber Monday and Rosa Parks Day.",
+      "image_prompt": "A respectful, subtly lit image for social media, depicting a red ribbon (the universal symbol of awareness and support for people living with HIV) at the center. The backdrop is a soft gradient from deep navy at the top to lighter blues at the bottom, symbolizing hope and remembrance. The ribbon is realistic and finely textured but has a gentle glow. The composition includes blurred, silhouetted crowds of people in the background, symbolizing unity and community support. No text, logos, or watermarks are to be included.",
+      "caption_style": {},
+      "branding_style": {},
+      "background_image_path": "holiday_images/holiday_2025_12_01_background.png",
+      "final_image_path": "holiday_images/holiday_2025_12_01_background_with_text.png",
+      "generated_at": "2025-09-12T09:41:12.319617",
+      "content_ready": true
+    }
+  },
+  "updated_at": "2025-09-16T21:56:51.246698",
+  "image_prompts_updated": 42
+}
