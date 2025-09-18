@@ -34,7 +34,7 @@ python3 script_name.py
 - Supports flexible date ranges
 - Skips existing content to prevent regeneration
 - Saves progress incrementally to prevent data loss
-- Outputs images to `holiday_images/` folder
+- Outputs images to `assets/images/` folder
 
 #### Usage:
 ```bash
@@ -52,14 +52,14 @@ python3 holiday_image_generator.py --no-skip-existing
 ```
 
 #### Arguments:
-- `--holidays-file`: Input JSON file with holidays (default: `2025holidays.json`)
-- `--output-file`: Output JSON file for results (default: `holiday_output.json`)
+- `--holidays-file`: Input JSON file with holidays (default: `data/input/2025holidays.json`)
+- `--output-file`: Output JSON file for results (default: `data/output/upcoming_holidays_output.json`)
 - `--start-date`: Start date in YYYY-MM-DD format (default: today)
 - `--days-ahead`: Number of days to process (default: 75)
 - `--no-skip-existing`: Regenerate existing content
 
 #### Output Structure:
-- **Images**: Saved to `holiday_images/` folder
+- **Images**: Saved to `assets/images/` folder
   - `holiday_YYYY_MM_DD_background.png` - Original AI-generated image
   - `holiday_YYYY_MM_DD_background_with_text.png` - Image with watermark
 - **Data**: JSON file with complete holiday data, captions, and image paths
@@ -84,13 +84,13 @@ python3 ultimate_scraper.py
 ## Data Files
 
 ### Input Files:
-- `2025holidays.json` - Complete list of holidays for the year
+- `data/input/2025holidays.json` - Complete list of holidays for the year
 - `.env` - Environment variables (API keys)
 
 ### Output Files:
-- `upcoming_holidays_output.json` - Generated holiday content
-- `pensacola_events.json` - Scraped Pensacola events
-- `holiday_images/` - Generated holiday images
+- `data/output/upcoming_holidays_output.json` - Generated holiday content
+- `data/input/pensacola_events.json` - Scraped Pensacola events
+- `assets/images/` - Generated holiday images
 
 ## Workflow Examples
 
@@ -112,6 +112,16 @@ source pensacola_scraper_env/bin/activate
 python3 holiday_image_generator.py --start-date 2025-12-01 --days-ahead 31
 ```
 
+### Regenerate Captions Only (No API Costs for Images):
+```bash
+# Regenerate captions for all existing entries
+source pensacola_scraper_env/bin/activate
+python3 holiday_image_generator.py --regenerate-captions --output-file data/output/upcoming_holidays_output.json
+
+# Regenerate captions for specific dates only
+python3 holiday_image_generator.py --regenerate-captions --target-dates 2025-12-25 2025-12-26 2025-12-27 --output-file data/output/upcoming_holidays_output.json
+```
+
 ## Tips for Claude
 1. **Always activate virtual environment first**
 2. **Use `python3` command prefix**
@@ -120,6 +130,9 @@ python3 holiday_image_generator.py --start-date 2025-12-01 --days-ahead 31
 5. **Images are automatically skipped if they already exist**
 6. **Progress is logged in real-time for long-running processes**
 7. **For large date ranges (>30 days), expect timeouts - restart from last processed date**
+8. **FIXED: Data is now preserved when regenerating - no more overwrites!**
+9. **Use `--regenerate-captions` to update captions without expensive image regeneration**
+10. **Unit tests available - run `python3 test_holiday_generator.py` to validate functionality**
 
 ## Troubleshooting
 
@@ -127,13 +140,46 @@ python3 holiday_image_generator.py --start-date 2025-12-01 --days-ahead 31
 1. **Module not found**: Activate virtual environment
 2. **API key errors**: Check `.env` file exists and contains valid keys
 3. **Timeout on large batches**: Restart from last processed date using `--start-date`
-4. **Permission errors**: Ensure write access to `holiday_images/` folder
+4. **Permission errors**: Ensure write access to `assets/images/` folder
 
 ### Recovery Commands:
 ```bash
 # Check last processed date in output file
-grep -o '"2025-[0-9][0-9]-[0-9][0-9]"' upcoming_holidays_output.json | tail -1
+grep -o '"2025-[0-9][0-9]-[0-9][0-9]"' data/output/upcoming_holidays_output.json | tail -1
 
 # Continue from last date
 python3 holiday_image_generator.py --start-date LAST_DATE --days-ahead REMAINING_DAYS
 ```
+
+## Midjourney Image Generator
+
+**Alternative high-quality image generation using Midjourney API**
+
+### Setup Midjourney:
+```bash
+# Create environment file and add API key
+python3 midjourney_generator.py setup
+# Edit .env file and add MIDJOURNEY_API_KEY from userapi.ai
+
+# Test connection
+python3 midjourney_generator.py test
+```
+
+### Holiday Generation with Midjourney:
+```bash
+# Generate holiday content using Midjourney (higher quality than DALL-E)
+python3 holiday_midjourney_generator.py --days-ahead 30
+
+# Generate with animations (creates MP4 videos)
+python3 holiday_midjourney_generator.py --days-ahead 7 --animate
+
+# Single image generation
+python3 midjourney_generator.py generate "festive Christmas scene, professional marketing"
+```
+
+### Midjourney Benefits:
+- **Higher Quality**: Superior image generation compared to DALL-E
+- **Animation Support**: Creates animated MP4 videos from static images
+- **Professional Output**: Optimized for social media marketing
+- **Cost Effective**: Often better value than OpenAI pricing
+- **Drop-in Replacement**: Works with existing holiday workflow
