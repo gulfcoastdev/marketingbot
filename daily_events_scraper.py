@@ -25,16 +25,29 @@ class DailyEventsScraper:
         """Get events for a specific date"""
         print(f"🗓️  Searching for events on: {target_date}")
 
-        # Build URL for the specific date range (just that day)
-        base_url = f"https://www.visitpensacola.com/events/?range=1&date-from={target_date}&date-to={target_date}&categories=544740%2C544743%2C544744%2C544746%2C544751%2C544752%2C2581955%2C7639914&regions=&keyword=&calendar=1"
+        all_events = []
 
-        events = self.scrape_events_from_url(base_url, target_date)
+        # Check both page 1 and page 2 for paginated results
+        for page in [1, 2]:
+            if page == 1:
+                base_url = f"https://www.visitpensacola.com/events/?range=1&date-from={target_date}&date-to={target_date}&categories=544740%2C544743%2C544744%2C544746%2C544751%2C544752%2C2581955%2C7639914&regions=&keyword=&calendar=1"
+            else:
+                base_url = f"https://www.visitpensacola.com/events/?page={page}&range=1&date-from={target_date}&date-to={target_date}&categories=544740%2C544743%2C544744%2C544746%2C544751%2C544752%2C2581955%2C7639914&regions=&keyword=&calendar=1"
 
-        # Filter events to exact date match
+            events = self.scrape_events_from_url(base_url, target_date)
+            all_events.extend(events)
+
+        # Filter events to exact date match and deduplicate
         filtered_events = []
-        for event in events:
+        seen = set()
+
+        for event in all_events:
             if event.get('date') == target_date:
-                filtered_events.append(event)
+                # Create deduplication key
+                key = (event.get('title', '').strip(), event.get('link', ''))
+                if key not in seen:
+                    seen.add(key)
+                    filtered_events.append(event)
 
         return filtered_events
 

@@ -30,8 +30,14 @@ def add_video_branding(input_video, logo_path, text, output_video, promo_text=No
     # Layout settings
     box_height = 80
 
-    # Create filter for single or double line text
-    if promo_text:
+    # Create filter based on text availability
+    if not text or text.strip() == "":
+        # No text: just logo overlay
+        filter_complex = (
+            f'[1:v]format=rgba,colorchannelmixer=aa={logo_alpha}[logo_alpha];'
+            f'[0:v][logo_alpha] overlay=10:10'
+        )
+    elif promo_text:
         # Two lines: holiday message + promo message
         filter_complex = (
             f'[1:v]format=rgba,colorchannelmixer=aa={logo_alpha}[logo_alpha];'
@@ -78,7 +84,7 @@ def main():
     parser = argparse.ArgumentParser(description='Add branding to video')
     parser.add_argument('--input', default='../../brandingburner/social_izotx_Create_an_social_media-ted_image_with_realistic_lightin_dde068e9-edec-4a1e-b3bb-a03979919576_1.mp4', help='Input video path')
     parser.add_argument('--logo', default='../../brandingburner/logo.png', help='Logo PNG path')
-    parser.add_argument('--text', default='Happy Maritime Day', help='Holiday message text (first line)')
+    parser.add_argument('--text', default='', help='Holiday message text (first line, optional)')
     parser.add_argument('--promo', help='Promotional text (second line)')
     parser.add_argument('--output', default='../../brandingburner/final_branded_video.mp4', help='Output video path')
 
