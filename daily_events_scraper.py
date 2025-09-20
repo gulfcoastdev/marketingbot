@@ -26,14 +26,16 @@ class DailyEventsScraper:
         print(f"🗓️  Searching for events on: {target_date}")
 
         all_events = []
+        search_urls = []
 
         # Check both page 1 and page 2 for paginated results
         for page in [1, 2]:
             if page == 1:
-                base_url = f"https://www.visitpensacola.com/events/?range=1&date-from={target_date}&date-to={target_date}&categories=544740%2C544743%2C544744%2C544746%2C544751%2C544752%2C2581955%2C7639914&regions=&keyword=&calendar=1"
+                base_url = f"https://www.visitpensacola.com/events/?range=1&date-from={target_date}&date-to={target_date}&categories=544740%2C544743%2C544744%2C544746%2C544751%2C544752%2C2581955%2C7482323%2C7639914&regions=&keyword=&calendar=1"
             else:
-                base_url = f"https://www.visitpensacola.com/events/?page={page}&range=1&date-from={target_date}&date-to={target_date}&categories=544740%2C544743%2C544744%2C544746%2C544751%2C544752%2C2581955%2C7639914&regions=&keyword=&calendar=1"
+                base_url = f"https://www.visitpensacola.com/events/?page={page}&range=1&date-from={target_date}&date-to={target_date}&categories=544740%2C544743%2C544744%2C544746%2C544751%2C544752%2C2581955%2C7482323%2C7639914&regions=&keyword=&calendar=1"
 
+            search_urls.append(base_url)
             events = self.scrape_events_from_url(base_url, target_date)
             all_events.extend(events)
 
@@ -49,6 +51,8 @@ class DailyEventsScraper:
                     seen.add(key)
                     filtered_events.append(event)
 
+        # Store search URLs for metadata
+        self.last_search_urls = search_urls
         return filtered_events
 
     def scrape_events_from_url(self, url, target_date):
@@ -134,12 +138,9 @@ class DailyEventsScraper:
             return {
                 'title': title,
                 'date': event_date,
-                'time': "",  # Will be filled later if needed
                 'location': location,
                 'description': title,  # Use title as fallback description
-                'category': "Event",
-                'link': event_link,
-                'source': 'visitpensacola.com'
+                'link': event_link
             }
 
         except Exception as e:
@@ -187,13 +188,6 @@ class DailyEventsScraper:
             elif "downtown" in title.lower() or "downtown" in card.get_text().lower():
                 location = "Downtown Pensacola"
 
-            # Time
-            time_text = ""
-            time_elem = card.find(class_=re.compile(r'time')) or card.find('time')
-            if time_elem:
-                time_match = re.search(r'(\\d{1,2}[:\\s]*\\d{0,2}\\s*[APMapm]{0,2})', time_elem.get_text())
-                if time_match:
-                    time_text = time_match.group(1).strip()
 
             # Description
             description = ""
@@ -201,21 +195,13 @@ class DailyEventsScraper:
             if desc_elem:
                 description = desc_elem.get_text(strip=True)[:300]  # Limit description length
 
-            # Category/Type
-            category = "Event"
-            category_elem = card.find(class_=re.compile(r'category|tag|type'))
-            if category_elem:
-                category = category_elem.get_text(strip=True)
 
             return {
                 'title': title,
                 'date': event_date,
-                'time': time_text,
                 'location': location,
                 'description': description,
-                'category': category,
-                'link': event_link,
-                'source': 'visitpensacola.com'
+                'link': event_link
             }
 
         except Exception as e:
@@ -305,9 +291,7 @@ class DailyEventsScraper:
             print(f"\\n🎉 EVENT #{i}")
             print(f"   📋 Title: {event.get('title', 'Unknown')}")
             print(f"   📅 Date: {event.get('date', '')}")
-            print(f"   ⏰ Time: {event.get('time', 'Time TBD')}")
             print(f"   📍 Location: {event.get('location', 'Pensacola')}")
-            print(f"   🏷️  Category: {event.get('category', 'Event')}")
 
             if event.get('description'):
                 desc = event.get('description', '')
@@ -334,44 +318,91 @@ class DailyEventsScraper:
             print(f"❌ Error saving to {filename}: {e}")
             return False
 
+    def create_json_response(self, events, search_date, days_range=1):
+        """Create a properly formatted JSON response with metadata"""
+        end_date = search_date
+        if days_range > 1:
+            end_date = (datetime.strptime(search_date, '%Y-%m-%d') + timedelta(days=days_range-1)).strftime('%Y-%m-%d')
+
+        # Create the primary search URL (page 1)
+        primary_url = f"https://www.visitpensacola.com/events/?range=1&date-from={search_date}&date-to={end_date}&categories=544740%2C544743%2C544744%2C544746%2C544751%2C544752%2C2581955%2C7482323%2C7639914&regions=&keyword=&calendar=1"
+
+        # Extract unique locations
+        locations = list(set([event.get('location', '') for event in events if event.get('location')]))
+
+        response = {
+            "metadata": {
+                "search_date": search_date,
+                "end_date": end_date,
+                "days_range": days_range,
+                "total_events": len(events),
+                "locations_found": locations,
+                "search_url": primary_url,
+                "search_urls_used": getattr(self, 'last_search_urls', [primary_url]),
+                "timestamp": datetime.now().isoformat(),
+                "source": "visitpensacola.com"
+            },
+            "events": events
+        }
+
+        return response
+
 def main():
     """Main function with command line arguments"""
     parser = argparse.ArgumentParser(description='Get Pensacola events for specific dates')
     parser.add_argument('--date',
                        default=datetime.now().strftime('%Y-%m-%d'),
-                       help='Date to search (YYYY-MM-DD format, default: today)')
+                       help='Start date to search (YYYY-MM-DD format, default: today)')
+    parser.add_argument('--end-date',
+                       help='End date to search (YYYY-MM-DD format, if not specified uses --date)')
     parser.add_argument('--days', type=int, default=1,
-                       help='Number of days to search from start date (default: 1)')
+                       help='Number of days to search from start date (default: 1, ignored if --end-date is used)')
     parser.add_argument('--save',
                        help='Save results to JSON file (optional)')
     parser.add_argument('--quiet', action='store_true',
                        help='Only output JSON, no formatted display')
+    parser.add_argument('--json', action='store_true',
+                       help='Output structured JSON with metadata and search URLs')
 
     args = parser.parse_args()
 
     scraper = DailyEventsScraper()
 
     try:
-        # Validate date format
+        # Validate start date format
         start_date = datetime.strptime(args.date, '%Y-%m-%d')
+
+        # Determine end date
+        if args.end_date:
+            try:
+                end_date = datetime.strptime(args.end_date, '%Y-%m-%d')
+            except ValueError:
+                print("❌ Invalid end date format. Use YYYY-MM-DD (e.g., 2025-09-21)")
+                return
+        else:
+            # Use days parameter if no end date specified
+            end_date = start_date + timedelta(days=args.days - 1)
+
     except ValueError:
-        print("❌ Invalid date format. Use YYYY-MM-DD (e.g., 2025-09-18)")
+        print("❌ Invalid start date format. Use YYYY-MM-DD (e.g., 2025-09-18)")
         return
 
     all_events = []
 
     # Search for events across the specified date range
-    for day_offset in range(args.days):
-        search_date = start_date + timedelta(days=day_offset)
-        search_date_str = search_date.strftime('%Y-%m-%d')
+    current_date = start_date
+    while current_date <= end_date:
+        search_date_str = current_date.strftime('%Y-%m-%d')
 
         events = scraper.get_events_for_date(search_date_str)
         all_events.extend(events)
 
         if not args.quiet:
             scraper.print_events(events, search_date_str)
-            if day_offset < args.days - 1:  # Not the last iteration
+            if current_date < end_date:  # Not the last iteration
                 print("\\n" + "="*60)
+
+        current_date += timedelta(days=1)
 
     # Save to JSON if requested
     if args.save:
@@ -380,6 +411,10 @@ def main():
     # Output JSON for scripting use
     if args.quiet:
         print(json.dumps(all_events, indent=2))
+    elif args.json:
+        # Create structured JSON response with metadata
+        json_response = scraper.create_json_response(all_events, args.date, args.days)
+        print(json.dumps(json_response, indent=2))
 
 if __name__ == "__main__":
     main()

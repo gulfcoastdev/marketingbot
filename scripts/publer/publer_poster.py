@@ -229,7 +229,10 @@ class PublerPoster:
 
     def get_media(self, page=0, media_types=None, search=None):
         """Get media from library"""
-        params = {'page': page}
+        params = {
+            'page': page,
+            'used[]': ['false', 'true']  # Include both used and unused media
+        }
         if media_types:
             for media_type in media_types:
                 params[f'types[]'] = media_type
