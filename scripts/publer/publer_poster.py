@@ -7,6 +7,8 @@ Publishes posts to multiple social media platforms using Publer API
 import os
 import requests
 import json
+import random
+import re
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 import time
@@ -64,7 +66,19 @@ class PublerPoster:
 
             # Organize accounts by platform
             for account in accounts:
-                platform = account.get('platform', 'unknown')
+                # Map account types to platform names
+                account_type = account.get('type', '')
+                if account_type == 'fb_page':
+                    platform = 'facebook'
+                elif account_type == 'ig_business':
+                    platform = 'instagram'
+                elif account_type == 'twitter':
+                    platform = 'twitter'
+                elif account_type == 'linkedin':
+                    platform = 'linkedin'
+                else:
+                    platform = account.get('platform', 'unknown')
+
                 if platform not in self.accounts:
                     self.accounts[platform] = []
                 self.accounts[platform].append(account)
@@ -201,6 +215,135 @@ class PublerPoster:
                 print(f"Response: {e.response.text}")
             return None
 
+    def create_post_with_media(self, text, platforms, media_id=None, post_type='post', schedule_time=None, immediate=True, auto_delete_at=None):
+        """
+        Create a post with media for specified platforms
+
+        Args:
+            text (str): Post content text
+            platforms (list): List of platforms ['facebook', 'instagram']
+            media_id (str): Media ID from Publer library
+            post_type (str): Type of post ('post', 'reel', 'story')
+            schedule_time (datetime): When to schedule (None for immediate)
+            immediate (bool): True for immediate publishing, False for scheduled
+            auto_delete_at (datetime): When to auto-delete the post
+        """
+        # Get account IDs for the specified platforms
+        post_accounts = []
+        for platform in platforms:
+            if platform in self.accounts:
+                for account in self.accounts[platform]:
+                    account_config = {'id': account['id']}
+
+                    # Add scheduling if specified (only for scheduled posts)
+                    if schedule_time and not immediate:
+                        # Ensure timezone is included in ISO format
+                        if schedule_time.tzinfo is None:
+                            # If no timezone, assume local timezone
+                            import time
+                            import datetime
+                            local_offset = time.timezone if (time.daylight == 0) else time.altzone
+                            local_offset = datetime.timedelta(seconds=-local_offset)
+                            schedule_time = schedule_time.replace(tzinfo=datetime.timezone(local_offset))
+                        account_config['scheduled_at'] = schedule_time.isoformat()
+
+                    # Add auto-delete if specified (for both immediate and scheduled)
+                    if auto_delete_at:
+                        # Ensure timezone is included in ISO format
+                        if auto_delete_at.tzinfo is None:
+                            # If no timezone, assume local timezone
+                            import time
+                            import datetime
+                            local_offset = time.timezone if (time.daylight == 0) else time.altzone
+                            local_offset = datetime.timedelta(seconds=-local_offset)
+                            auto_delete_at = auto_delete_at.replace(tzinfo=datetime.timezone(local_offset))
+                        account_config['auto_delete_at'] = auto_delete_at.isoformat()
+
+                    post_accounts.append(account_config)
+
+        if not post_accounts:
+            print(f"❌ No accounts found for platforms: {platforms}")
+            return None
+
+        # Build networks configuration based on post type
+        networks = {}
+        for platform in platforms:
+            if platform == 'facebook':
+                if post_type == 'reel':
+                    networks['facebook'] = {
+                        'type': 'reel',
+                        'text': text
+                    }
+                else:
+                    # Use 'video' type when we have video media, 'photo' for images, 'status' for text-only
+                    content_type = 'video' if media_id else 'status'  # Changed from 'photo' to 'video'
+                    networks['facebook'] = {
+                        'type': content_type,
+                        'text': text
+                    }
+            elif platform == 'instagram':
+                if post_type == 'reel':
+                    networks['instagram'] = {
+                        'type': 'reel',
+                        'text': text
+                    }
+                else:
+                    # Use 'video' type when we have video media, 'photo' for images, 'status' for text-only
+                    content_type = 'video' if media_id else 'status'  # Changed from 'photo' to 'video'
+                    networks['instagram'] = {
+                        'type': content_type,
+                        'text': text
+                    }
+
+        # Add media to networks if provided
+        if media_id:
+            for platform in networks:
+                if 'media' not in networks[platform]:
+                    networks[platform]['media'] = []
+                # Include type field as required by API
+                networks[platform]['media'].append({
+                    'id': media_id,
+                    'type': 'video'  # Assuming video since we're using branded videos
+                })
+
+        # Build the post payload
+        post_data = {
+            'bulk': {
+                'posts': [{
+                    'networks': networks,
+                    'accounts': post_accounts
+                }]
+            }
+        }
+
+        # Choose endpoint and set state based on publishing mode
+        if immediate:
+            endpoint = f"{self.base_url}/posts/schedule/publish"
+            post_data['bulk']['state'] = 'scheduled'  # Required even for immediate
+        else:
+            endpoint = f"{self.base_url}/posts/schedule"
+            post_data['bulk']['state'] = 'scheduled'
+
+        try:
+            response = self.session.post(endpoint, json=post_data)
+            response.raise_for_status()
+            result = response.json()
+
+            print(f"✅ {post_type.title()} post created successfully for {', '.join(platforms)}!")
+            if auto_delete_at:
+                print(f"⏰ Auto-delete scheduled for: {auto_delete_at.strftime('%Y-%m-%d %H:%M')}")
+
+            if 'job_id' in result:
+                job_status = self.check_job_status(result['job_id'])
+                return result
+            return result
+
+        except requests.exceptions.RequestException as e:
+            print(f"❌ Error creating {post_type} post: {e}")
+            if hasattr(e.response, 'text'):
+                print(f"Response: {e.response.text}")
+            return None
+
     def check_job_status(self, job_id, max_wait=60):
         """Check the status of a scheduled post job"""
         print(f"🔄 Checking job status: {job_id}")
@@ -281,6 +424,33 @@ class PublerPoster:
             print(f"❌ Error getting posts: {e}")
             return None
 
+
+    def select_random_branded_video(self):
+        """Select a random video from Publer library"""
+        try:
+            # Get video media from Publer
+            media_data = self.get_media(page=0, media_types=['video'])
+            if not media_data or len(media_data.get('media', [])) == 0:
+                return None
+
+            # Filter videos with naming convention
+            video_pattern = re.compile(r'^\d+_.*\.mp4$')
+            videos = []
+
+            for media_item in media_data.get('media', []):
+                filename = media_item.get('name', '') or media_item.get('filename', '')
+                if video_pattern.match(filename):
+                    videos.append(media_item)
+
+            if videos:
+                selected = random.choice(videos)
+                return selected
+            return None
+
+        except Exception as e:
+            print(f"⚠️ Could not select random video: {e}")
+            return None
+
 def main():
     """Example usage of PublerPoster"""
     try:
@@ -295,21 +465,6 @@ def main():
         accounts = poster.get_accounts()
         if not accounts:
             return
-
-        # Example: Create a simple text post
-        text_post = poster.create_post(
-            text="Hello from MiCasa.Rentals! 🏖️ Experience the best of Pensacola Beach with our luxury vacation rentals.",
-            platforms=['facebook'],  # Add more platforms as needed
-            schedule_time=datetime.now() + timedelta(minutes=5)  # Schedule 5 minutes from now
-        )
-
-        # Example: Create a post with media
-        # media_post = poster.create_post(
-        #     text="Check out this amazing sunset view from our Pensacola Beach rental! 🌅",
-        #     platforms=['facebook', 'instagram'],
-        #     media_path='path/to/your/image.jpg',
-        #     schedule_time=datetime.now() + timedelta(hours=1)
-        # )
 
         # Test media API access
         print("\n🎬 Testing media API access...")
