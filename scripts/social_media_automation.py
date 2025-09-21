@@ -44,78 +44,109 @@ class SocialMediaAutomation:
         return events
 
     def generate_social_content(self, events, date_str):
-        """Generate social media content using OpenAI"""
+        """Generate social media content using OpenAI function calling"""
         print("🤖 Generating social media content...")
 
-        # Format events for AI prompt
-        events_text = ""
-        for i, event in enumerate(events[:5], 1):  # Limit to top 5 events
-            events_text += f"{i}. {event['title']} - {event['location']}\n"
-            if event.get('description') and event['description'] != event['title']:
-                events_text += f"   Description: {event['description'][:100]}...\n"
+        # Prepare the complete events data as JSON
+        events_json = {
+            "date": date_str,
+            "events": events[:10],  # Include more events for better content generation
+            "metadata": {
+                "search_url": f"https://www.visitpensacola.com/events/?range=1&date-from={date_str}&date-to={date_str}"
+            }
+        }
 
-        if not events_text:
-            events_text = "No specific events found for today."
+        prompt = f"""You are a content assistant. I will provide a JSON containing event data (title, date, location, description, link, metadata).
 
-        prompt = f"""Create engaging social media content for MiCasa.Rentals vacation rentals in Pensacola Beach.
+Your task is to return a JSON object with two keys:
 
-Today's date: {date_str}
-Local Pensacola events happening today:
-{events_text}
+long_post:
 
-Create 2 different social media posts:
+Format as a social media caption with:
 
-1. SOCIAL POST (for Facebook/Instagram feed):
-- 1-2 sentences highlighting Pensacola's attractions or today's events
-- Connect it to why staying at MiCasa vacation rentals is perfect
-- Include relevant emojis
-- Keep it under 150 characters
-- Don't use hashtags
+Header: ✨ What's Happening in Pensacola – [Day, Date] ✨
 
-2. REEL POST (for Facebook/Instagram reels - more energetic):
-- Short, punchy text perfect for video content
-- Focus on excitement and FOMO about Pensacola Beach
-- More emojis and energetic language
-- Under 100 characters
-- Don't use hashtags
+Group events under: Downtown vibes, Beach beats, Also happening.
 
-Format your response as:
-SOCIAL: [text here]
-REEL: [text here]
+List 3–4 event titles per group, separated by commas, no bullets.
 
-Keep the tone friendly, exciting, and focused on luxury beach vacation experiences."""
+End with two lines:
+📍 For more: Visit Pensacola → [metadata.search_url]
+✨ Visiting Pensacola? Stay with us → www.micasa.rentals
+
+Keep it plain text, cross-platform friendly.
+
+short_post:
+
+Write 1–2 catchy sentences highlighting 2–3 engaging events.
+
+End with the same two links:
+📍 For more: Visit Pensacola → [metadata.search_url]
+✨ Visiting Pensacola? Stay with us → www.micasa.rentals
+
+Keep it casual and shorter (ideal for Reels/TikTok captions).
+
+Here's the event data: {json.dumps(events_json, indent=2)}"""
+
+        # Define the function schema for OpenAI
+        tools = [
+            {
+                "type": "function",
+                "function": {
+                    "name": "create_social_posts",
+                    "description": "Create social media posts for Pensacola events",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "long_post": {
+                                "type": "string",
+                                "description": "Long-form social media post with event details"
+                            },
+                            "short_post": {
+                                "type": "string",
+                                "description": "Short, catchy post for Reels/TikTok"
+                            }
+                        },
+                        "required": ["long_post", "short_post"]
+                    }
+                }
+            }
+        ]
 
         try:
             response = self.openai_client.chat.completions.create(
                 model="gpt-4",
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=300,
+                tools=tools,
+                tool_choice={"type": "function", "function": {"name": "create_social_posts"}},
+                max_tokens=500,
                 temperature=0.7
             )
 
-            content = response.choices[0].message.content.strip()
-            print(f"✅ Generated content:\n{content}")
+            # Extract the function call result
+            if response.choices[0].message.tool_calls:
+                function_call = response.choices[0].message.tool_calls[0]
+                function_args = json.loads(function_call.function.arguments)
 
-            # Parse the response
-            social_text = ""
-            reel_text = ""
+                long_post = function_args.get('long_post', '')
+                short_post = function_args.get('short_post', '')
 
-            for line in content.split('\n'):
-                if line.startswith('SOCIAL:'):
-                    social_text = line.replace('SOCIAL:', '').strip()
-                elif line.startswith('REEL:'):
-                    reel_text = line.replace('REEL:', '').strip()
+                print(f"✅ Generated content successfully")
+                print(f"Long post: {long_post[:100]}...")
+                print(f"Short post: {short_post[:100]}...")
 
-            return {
-                'social': social_text,
-                'reel': reel_text
-            }
+                return {
+                    'social': long_post,
+                    'reel': short_post
+                }
+            else:
+                raise Exception("No function call returned from OpenAI")
 
         except Exception as e:
             print(f"❌ Error generating content: {e}")
             return {
-                'social': "Experience the best of Pensacola Beach at MiCasa.Rentals! 🏖️ Luxury meets paradise.",
-                'reel': "Paradise awaits at Pensacola Beach! 🌊✨"
+                'social': f"✨ What's Happening in Pensacola – {date_str} ✨\n\nDowntown vibes, Beach beats, and more!\n\n📍 For more: Visit Pensacola → https://www.visitpensacola.com/events/\n✨ Visiting Pensacola? Stay with us → www.micasa.rentals",
+                'reel': f"Pensacola's got the vibes today! 🌊✨\n\n📍 For more: Visit Pensacola → https://www.visitpensacola.com/events/\n✨ Visiting Pensacola? Stay with us → www.micasa.rentals"
             }
 
     def generate_pensacola_fact(self):
@@ -127,14 +158,16 @@ Keep the tone friendly, exciting, and focused on luxury beach vacation experienc
 Requirements:
 - Focus on history, nature, culture, attractions, or unique features
 - Make it engaging and shareable for social media
-- Keep it under 200 characters
+- Keep it under 300 characters
 - Include relevant emojis
 - Make it feel local and authentic
 - Don't use hashtags
 
 Examples:
-"🏴‍☠️ Pensacola was once the hideout of pirate Jean Lafitte! The Gulf Coast's swashbuckling history lives on in our crystal waters ⚓"
-"🌊 The Gulf Islands National Seashore protects 150 miles of pristine coastline - some of the whitest sand beaches in the world! 🏖️"
+Did you know?
+🏴‍☠️ Pensacola was once the hideout of pirate Jean Lafitte! The Gulf Coast's swashbuckling history lives on in our crystal waters ⚓
+Fun Fact:
+🌊 The Gulf Islands National Seashore protects 150 miles of pristine coastline - some of the whitest sand beaches in the world! 🏖️
 
 Generate ONE fact in this style:"""
 
