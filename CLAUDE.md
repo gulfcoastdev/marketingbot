@@ -242,9 +242,10 @@ python3 scripts/publer/test_publer.py
 ### **Critical Testing Scenarios:**
 1. **Media Selection**: Verify regex pattern `^\d+_.*\.mp4$` works correctly
 2. **Hashtag Fallback**: Ensure `#micasa #pensacola #furnished #rental` added when no signature
-3. **Dual Platform Posting**: Both Facebook and Instagram receive posts
+3. **Multi-Platform Posting**: Facebook, Instagram, and Twitter receive posts
 4. **OpenAI Function Calling**: Structured content generation works
 5. **Auto-Delete Timing**: Test vs production timing differences
+6. **Twitter Integration**: Verify Twitter posts work without signatures
 
 ### **Before Each Deployment:**
 ```bash

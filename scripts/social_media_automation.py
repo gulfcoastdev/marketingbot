@@ -216,7 +216,7 @@ Generate ONE fact in this style:"""
         else:
             delete_time = datetime.now() + timedelta(hours=24)
 
-        # Get default signature for posts
+        # Get default signature for posts (Twitter doesn't support signatures)
         signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
 
         # Add fallback hashtags if no signature found
@@ -224,10 +224,10 @@ Generate ONE fact in this style:"""
             print("📝 No signature found, adding fallback hashtags...")
             fact_text += "\n\n#micasa #pensacola #furnished #rental"
 
-        # Post to Facebook and Instagram
+        # Post to Facebook, Instagram, and Twitter
         result = self.publer.create_post_with_media(
             text=fact_text,
-            platforms=['facebook', 'instagram'],
+            platforms=['facebook', 'instagram', 'twitter'],
             media_id=media.get('id') if media else None,
             post_type='post',
             schedule_time=schedule_time if not immediate else None,
@@ -275,8 +275,8 @@ Generate ONE fact in this style:"""
         print(f"✅ Selected video: {selected_video.get('name', 'Unknown')}")
         return selected_video
 
-    def create_posts(self, content, media, date_str, schedule_time=None, immediate=True):
-        """Create and publish posts to Facebook and Instagram"""
+    def post_daily_events(self, content, media, date_str, schedule_time=None, immediate=True):
+        """Create and publish daily events posts to Facebook, Instagram, and Twitter"""
         publish_mode = "immediate" if immediate else "scheduled"
         print(f"📱 Creating social media posts ({publish_mode})...")
 
@@ -286,18 +286,20 @@ Generate ONE fact in this style:"""
         else:
             delete_time = datetime.now() + timedelta(hours=24)
 
-        # Get default signature for posts
+        # Get default signature for posts (Twitter doesn't support signatures)
         signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
 
         # Add fallback hashtags if no signature found
         fallback_hashtags = "\n\n#micasa #pensacola #furnished #rental"
         social_text = content['social']
         reel_text = content['reel']
+        twitter_text = content['social']  # Use social content for Twitter
 
         if not signature_id:
             print("📝 No signature found, adding fallback hashtags...")
             social_text += fallback_hashtags
             reel_text += fallback_hashtags
+            twitter_text += fallback_hashtags
 
         results = {}
 
@@ -314,6 +316,20 @@ Generate ONE fact in this style:"""
             signature_id=signature_id
         )
         results['social_post'] = social_post
+
+        # Twitter Post
+        print("🐦 Creating Twitter post...")
+        twitter_post = self.publer.create_post_with_media(
+            text=twitter_text,
+            platforms=['twitter'],
+            media_id=media.get('id') if media else None,
+            post_type='post',
+            schedule_time=schedule_time if not immediate else None,
+            immediate=immediate,
+            auto_delete_at=delete_time,
+            signature_id=None  # Twitter doesn't support signatures
+        )
+        results['twitter_post'] = twitter_post
 
         # Reel Post (Facebook + Instagram reels)
         print("🎥 Creating reel post...")
@@ -350,14 +366,15 @@ Generate ONE fact in this style:"""
             # Step 3: Select media
             media = self.select_random_media()
 
-            # Step 4: Create posts
-            results = self.create_posts(content, media, date_str, schedule_time, immediate)
+            # Step 4: Post daily events
+            results = self.post_daily_events(content, media, date_str, schedule_time, immediate)
 
             print("\n🎉 Automation completed successfully!")
             print(f"📊 Results summary:")
             print(f"   • Events found: {len(events)}")
-            print(f"   • Social post: {'✅' if results.get('social_post') else '❌'}")
-            print(f"   • Reel post: {'✅' if results.get('reel_post') else '❌'}")
+            print(f"   • Social post (FB+IG): {'✅' if results.get('social_post') else '❌'}")
+            print(f"   • Twitter post: {'✅' if results.get('twitter_post') else '❌'}")
+            print(f"   • Reel post (FB+IG): {'✅' if results.get('reel_post') else '❌'}")
             print(f"   • Media used: {media.get('name', 'None') if media else 'None'}")
             print(f"   • Publishing: {publish_mode}")
             if schedule_time:
