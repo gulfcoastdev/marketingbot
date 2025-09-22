@@ -183,3 +183,80 @@ python3 midjourney_generator.py generate "festive Christmas scene, professional 
 - **Professional Output**: Optimized for social media marketing
 - **Cost Effective**: Often better value than OpenAI pricing
 - **Drop-in Replacement**: Works with existing holiday workflow
+
+## Social Media Post Auto-Delete Guidelines
+
+### **Auto-Delete Timing Rules:**
+- **Test Posts**: 10 minutes (for testing functionality)
+- **Production Posts**: 24 hours (default for all regular content)
+- **Custom Posts**: As specified by user
+
+### **Implementation:**
+```python
+# Test posts (debugging/testing)
+delete_time = datetime.now() + timedelta(minutes=10)
+
+# Production posts (default)
+delete_time = datetime.now() + timedelta(hours=24)
+
+# Custom timing (as specified)
+delete_time = datetime.now() + timedelta(hours=CUSTOM_HOURS)
+```
+
+### **When to Use:**
+- **10 minutes**: Testing automation, debugging API calls, verifying content
+- **24 hours**: Daily events, facts, regular marketing content
+- **Custom**: Special campaigns, announcements, or user-specified duration
+
+## Testing Requirements
+
+### **ALWAYS RUN TESTS BEFORE DEPLOYING CHANGES**
+
+After making any changes to social media automation, you MUST run the test suite to ensure functionality is preserved.
+
+### **Test Suite Commands:**
+```bash
+# Activate virtual environment
+source pensacola_scraper_env/bin/activate
+
+# Run all social media automation tests
+python3 tests/test_social_media_automation.py
+
+# Run holiday generator tests
+python3 tests/test_holiday_generator.py
+
+# Run basic automation integration test (no posting)
+python3 scripts/test_automation.py
+
+# Run Publer API tests
+python3 scripts/publer/test_publer.py
+```
+
+### **Test Coverage:**
+- **Unit Tests**: Content generation, media selection, hashtag fallback
+- **Integration Tests**: Event scraping, API connectivity
+- **Regex Validation**: Video naming pattern matching
+- **Error Handling**: OpenAI failures, missing media, API errors
+- **Auto-Delete Timing**: 10 minutes vs 24 hours validation
+
+### **Critical Testing Scenarios:**
+1. **Media Selection**: Verify regex pattern `^\d+_.*\.mp4$` works correctly
+2. **Hashtag Fallback**: Ensure `#micasa #pensacola #furnished #rental` added when no signature
+3. **Dual Platform Posting**: Both Facebook and Instagram receive posts
+4. **OpenAI Function Calling**: Structured content generation works
+5. **Auto-Delete Timing**: Test vs production timing differences
+
+### **Before Each Deployment:**
+```bash
+# Full test sequence
+source pensacola_scraper_env/bin/activate
+python3 tests/test_social_media_automation.py
+python3 scripts/test_automation.py
+echo "✅ All tests passed - safe to deploy"
+```
+
+### **When Tests Fail:**
+- **DO NOT** deploy changes
+- Debug and fix failing tests first
+- Re-run full test suite
+- Only deploy after all tests pass

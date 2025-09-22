@@ -56,7 +56,7 @@ class SocialMediaAutomation:
             }
         }
 
-        prompt = f"""You are a content assistant. I will provide a JSON containing event data (title, date, location, description, link, metadata).
+        prompt = """You are a content assistant. I will provide a JSON containing event data (title, date, location, description, link, metadata).
 
 Your task is to return a JSON object with two keys:
 
@@ -64,9 +64,9 @@ long_post:
 
 Format as a social media caption with:
 
-Header: ✨ What's Happening in Pensacola – [Day, Date] ✨
+Header: ✨ What's Happening in Pensacola – [Day, Month] ✨
 
-Group events under: Downtown vibes, Beach beats, Also happening.
+Group events under: different locations .
 
 List 3–4 event titles per group, separated by commas, no bullets.
 
@@ -86,7 +86,20 @@ End with the same two links:
 
 Keep it casual and shorter (ideal for Reels/TikTok captions).
 
-Here's the event data: {json.dumps(events_json, indent=2)}"""
+Example Output:
+
+{
+  "long_post": "✨ What’s Happening in Pensacola – Sunday, Sept 21 ✨\n\n**Downtown vibes:**\nSpirits of Seville Quarter Ghost Tour, JEKYLL & HYDE, Pensacola Haunted Walking Tour, Mariachi Herencia de México.\n\n**Beach beats:**\nAdult Roller Hockey Games, Jessie Ritter live at Bounce Beach, Horseshoe Kitty at Bamboo Willie’s, Locals Luau Party.\n\n**Also happening:**\nThree Decembers, Your Luck in Bloom.\n\n📍 For more: Visit Pensacola → https://www.visitpensacola.com/events/?range=1&date-from=2025-09-21&date-to=2025-09-21\n✨ Visiting Pensacola? Stay with us → www.micasa.rentals",
+  "short_post": "✨ Pensacola Sunday vibes – Sept 21! Catch JEKYLL & HYDE downtown, Horseshoe Kitty rocking Bamboo Willie’s, and the Locals Luau Party on the beach. 📍 For more: Visit Pensacola → https://www.visitpensacola.com/events/?range=1&date-from=2025-09-21&date-to=2025-09-21 ✨ Visiting Pensacola? Stay with us → www.micasa.rentals"
+}
+
+Here's the event data: """ + json.dumps(events_json, indent=2) + """
+
+
+
+
+
+"""
 
         # Define the function schema for OpenAI
         tools = [
@@ -203,6 +216,14 @@ Generate ONE fact in this style:"""
         else:
             delete_time = datetime.now() + timedelta(hours=24)
 
+        # Get default signature for posts
+        signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
+
+        # Add fallback hashtags if no signature found
+        if not signature_id:
+            print("📝 No signature found, adding fallback hashtags...")
+            fact_text += "\n\n#micasa #pensacola #furnished #rental"
+
         # Post to Facebook and Instagram
         result = self.publer.create_post_with_media(
             text=fact_text,
@@ -211,7 +232,8 @@ Generate ONE fact in this style:"""
             post_type='post',
             schedule_time=schedule_time if not immediate else None,
             immediate=immediate,
-            auto_delete_at=delete_time
+            auto_delete_at=delete_time,
+            signature_id=signature_id
         )
 
         if result:
@@ -264,31 +286,46 @@ Generate ONE fact in this style:"""
         else:
             delete_time = datetime.now() + timedelta(hours=24)
 
+        # Get default signature for posts
+        signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
+
+        # Add fallback hashtags if no signature found
+        fallback_hashtags = "\n\n#micasa #pensacola #furnished #rental"
+        social_text = content['social']
+        reel_text = content['reel']
+
+        if not signature_id:
+            print("📝 No signature found, adding fallback hashtags...")
+            social_text += fallback_hashtags
+            reel_text += fallback_hashtags
+
         results = {}
 
         # Social Media Post (Facebook + Instagram feed)
         print("📝 Creating social media post...")
         social_post = self.publer.create_post_with_media(
-            text=content['social'],
+            text=social_text,
             platforms=['facebook', 'instagram'],
             media_id=media.get('id') if media else None,
             post_type='post',
             schedule_time=schedule_time if not immediate else None,
             immediate=immediate,
-            auto_delete_at=delete_time
+            auto_delete_at=delete_time,
+            signature_id=signature_id
         )
         results['social_post'] = social_post
 
         # Reel Post (Facebook + Instagram reels)
         print("🎥 Creating reel post...")
         reel_post = self.publer.create_post_with_media(
-            text=content['reel'],
+            text=reel_text,
             platforms=['facebook', 'instagram'],
             media_id=media.get('id') if media else None,
             post_type='reel',
             schedule_time=schedule_time if not immediate else None,
             immediate=immediate,
-            auto_delete_at=delete_time
+            auto_delete_at=delete_time,
+            signature_id=signature_id
         )
         results['reel_post'] = reel_post
 

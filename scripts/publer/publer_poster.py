@@ -215,7 +215,7 @@ class PublerPoster:
                 print(f"Response: {e.response.text}")
             return None
 
-    def create_post_with_media(self, text, platforms, media_id=None, post_type='post', schedule_time=None, immediate=True, auto_delete_at=None):
+    def create_post_with_media(self, text, platforms, media_id=None, post_type='post', schedule_time=None, immediate=True, auto_delete_at=None, signature_id=None):
         """
         Create a post with media for specified platforms
 
@@ -227,6 +227,7 @@ class PublerPoster:
             schedule_time (datetime): When to schedule (None for immediate)
             immediate (bool): True for immediate publishing, False for scheduled
             auto_delete_at (datetime): When to auto-delete the post
+            signature_id (str): Signature ID to add to posts (None for no signature)
         """
         # Get account IDs for the specified platforms
         post_accounts = []
@@ -258,6 +259,10 @@ class PublerPoster:
                             local_offset = datetime.timedelta(seconds=-local_offset)
                             auto_delete_at = auto_delete_at.replace(tzinfo=datetime.timezone(local_offset))
                         account_config['auto_delete_at'] = auto_delete_at.isoformat()
+
+                    # Add signature if specified (not supported on Twitter/X and Bluesky)
+                    if signature_id and platform not in ['twitter', 'bluesky']:
+                        account_config['signature'] = signature_id
 
                     post_accounts.append(account_config)
 
@@ -423,6 +428,62 @@ class PublerPoster:
         except requests.exceptions.RequestException as e:
             print(f"❌ Error getting posts: {e}")
             return None
+
+    def get_signatures(self, account_ids=None):
+        """Get available signatures for accounts"""
+        if not self.workspace_id:
+            print("❌ No workspace selected. Call get_workspaces() first.")
+            return None
+
+        try:
+            url = f"{self.base_url}/workspaces/{self.workspace_id}/signatures"
+            params = {}
+
+            # Add account IDs filter if provided
+            if account_ids:
+                if isinstance(account_ids, str):
+                    account_ids = [account_ids]
+                for account_id in account_ids:
+                    params[f'account_ids[]'] = account_id
+
+            response = self.session.get(url, params=params)
+            response.raise_for_status()
+            signatures = response.json()
+
+            print(f"✅ Retrieved {len(signatures)} signatures")
+            return signatures
+
+        except requests.exceptions.RequestException as e:
+            print(f"❌ Error getting signatures: {e}")
+            if hasattr(e, 'response') and e.response:
+                print(f"Response status: {e.response.status_code}")
+                print(f"Response text: {e.response.text}")
+            return None
+
+    def get_default_signature(self, platforms=None):
+        """Get the first available signature for specified platforms"""
+        if platforms is None:
+            platforms = ['facebook', 'instagram']
+
+        # Get account IDs for the platforms
+        account_ids = []
+        for platform in platforms:
+            if platform in self.accounts:
+                for account in self.accounts[platform]:
+                    account_ids.append(account['id'])
+
+        if not account_ids:
+            print(f"❌ No accounts found for platforms: {platforms}")
+            return None
+
+        signatures = self.get_signatures(account_ids)
+        if signatures and len(signatures) > 0:
+            default_sig = signatures[0]
+            print(f"✅ Using default signature: {default_sig.get('name', 'Unnamed')}")
+            return default_sig['id']
+
+        print("❌ No signatures found")
+        return None
 
 
     def select_random_branded_video(self):
