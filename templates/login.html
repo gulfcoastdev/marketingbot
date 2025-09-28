@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block header %}🔐 Marketing Bot Login{% endblock %}
+
+{% block content %}
+<form method="POST" style="max-width: 400px; margin: 0 auto;">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+    </div>
+
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+</form>
+
+<div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 6px;">
+    <h4>🛡️ Security Features</h4>
+    <ul style="margin-top: 10px;">
+        <li>Rate limiting (5 login attempts per minute)</li>
+        <li>CSRF protection on all forms</li>
+        <li>Session-based authentication</li>
+        <li>Posting rate limits (3 per minute)</li>
+    </ul>
+</div>
+{% endblock %}

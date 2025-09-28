@@ -200,7 +200,60 @@ Generate ONE fact in this style:"""
             print(f"❌ Error generating fact: {e}")
             return "🏖️ Pensacola Beach boasts some of the world's whitest sand beaches, made of pure quartz crystals! ✨"
 
-    def post_pensacola_fact(self, schedule_time=None, immediate=True):
+    def post_content(self, content_configs, media, schedule_time=None, immediate=True, test_mode=False):
+        """
+        Unified method to post content to social media platforms
+
+        Args:
+            content_configs (list): List of config dicts with keys: 'text', 'platforms', 'post_type', 'name'
+            media (dict): Media object from Publer
+            schedule_time (datetime): When to schedule (None for immediate)
+            immediate (bool): True for immediate publishing
+            test_mode (bool): True for 15-minute auto-delete, False for 24-hour auto-delete
+
+        Returns:
+            dict: Results for each post type
+        """
+        # Set auto-delete timing based on mode
+        if test_mode:
+            auto_delete = {'duration': 15, 'unit': 'Minute'}
+        else:
+            auto_delete = {'duration': 24, 'unit': 'Hour'}
+
+        # Get default signature for posts (Twitter doesn't support signatures)
+        signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
+
+        # Add fallback hashtags if no signature found
+        fallback_hashtags = "\n\n#micasa #pensacola #furnished #rental"
+
+        results = {}
+
+        for config in content_configs:
+            text = config['text']
+            platforms = config['platforms']
+            post_type = config['post_type']
+            name = config['name']
+
+            # Add fallback hashtags if no signature and not Twitter-only
+            if not signature_id and not all(p == 'twitter' for p in platforms):
+                text += fallback_hashtags
+
+            print(f"📝 Creating {name}...")
+            result = self.publer.create_post_with_media(
+                text=text,
+                platforms=platforms,
+                media_id=media.get('id') if media else None,
+                post_type=post_type,
+                schedule_time=schedule_time if not immediate else None,
+                immediate=immediate,
+                auto_delete=auto_delete,
+                signature_id=signature_id if 'twitter' not in platforms else None
+            )
+            results[name.lower().replace(' ', '_')] = result
+
+        return results
+
+    def post_pensacola_fact(self, schedule_time=None, immediate=True, test_mode=False):
         """Post a random Pensacola fact to social media"""
         print("📱 Posting Pensacola fact...")
 
@@ -210,38 +263,32 @@ Generate ONE fact in this style:"""
         # Select random media
         media = self.select_random_media()
 
-        # Calculate auto-delete time (24 hours from post time)
-        if schedule_time:
-            delete_time = schedule_time + timedelta(hours=24)
-        else:
-            delete_time = datetime.now() + timedelta(hours=24)
-
-        # Get default signature for posts (Twitter doesn't support signatures)
-        signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
-
         # Add fallback hashtags if no signature found
+        signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
         if not signature_id:
             print("📝 No signature found, adding fallback hashtags...")
-            fact_text += "\n\n#micasa #pensacola #furnished #rental"
 
-        # Post to Facebook, Instagram, and Twitter
-        result = self.publer.create_post_with_media(
-            text=fact_text,
-            platforms=['facebook', 'instagram', 'twitter'],
-            media_id=media.get('id') if media else None,
-            post_type='post',
-            schedule_time=schedule_time if not immediate else None,
-            immediate=immediate,
-            auto_delete_at=delete_time,
-            signature_id=signature_id
-        )
+        # Create content configuration for unified posting
+        content_configs = [
+            {
+                'text': fact_text,
+                'platforms': ['facebook', 'instagram', 'twitter'],
+                'post_type': 'post',
+                'name': 'fact post'
+            }
+        ]
+
+        # Use unified posting method
+        results = self.post_content(content_configs, media, schedule_time, immediate, test_mode)
+        result = results.get('fact_post')
 
         if result:
+            delete_timing = "15 minutes" if test_mode else "24 hours"
             print(f"✅ Pensacola fact posted successfully!")
             print(f"📱 Content: {fact_text}")
             if media:
                 print(f"🎬 Media: {media.get('name', 'Unknown')}")
-            print(f"⏰ Auto-delete: 24 hours from post time")
+            print(f"⏰ Auto-delete: {delete_timing} from post time")
         else:
             print(f"❌ Failed to post Pensacola fact")
 
@@ -275,79 +322,39 @@ Generate ONE fact in this style:"""
         print(f"✅ Selected video: {selected_video.get('name', 'Unknown')}")
         return selected_video
 
-    def post_daily_events(self, content, media, date_str, schedule_time=None, immediate=True):
+    def post_daily_events(self, content, media, date_str, schedule_time=None, immediate=True, test_mode=False):
         """Create and publish daily events posts to Facebook, Instagram, and Twitter"""
         publish_mode = "immediate" if immediate else "scheduled"
         print(f"📱 Creating social media posts ({publish_mode})...")
 
-        # Calculate auto-delete time (24 hours from post time)
-        if schedule_time:
-            delete_time = schedule_time + timedelta(hours=24)
-        else:
-            delete_time = datetime.now() + timedelta(hours=24)
+        # Create content configurations for unified posting
+        content_configs = [
+            {
+                'text': content['social'],
+                'platforms': ['facebook', 'instagram'],
+                'post_type': 'post',
+                'name': 'social post'
+            },
+            {
+                'text': content['social'],  # Use social content for Twitter
+                'platforms': ['twitter'],
+                'post_type': 'post',
+                'name': 'twitter post'
+            },
+            {
+                'text': content['reel'],
+                'platforms': ['facebook', 'instagram'],
+                'post_type': 'reel',
+                'name': 'reel post'
+            }
+        ]
 
-        # Get default signature for posts (Twitter doesn't support signatures)
-        signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
-
-        # Add fallback hashtags if no signature found
-        fallback_hashtags = "\n\n#micasa #pensacola #furnished #rental"
-        social_text = content['social']
-        reel_text = content['reel']
-        twitter_text = content['social']  # Use social content for Twitter
-
-        if not signature_id:
-            print("📝 No signature found, adding fallback hashtags...")
-            social_text += fallback_hashtags
-            reel_text += fallback_hashtags
-            twitter_text += fallback_hashtags
-
-        results = {}
-
-        # Social Media Post (Facebook + Instagram feed)
-        print("📝 Creating social media post...")
-        social_post = self.publer.create_post_with_media(
-            text=social_text,
-            platforms=['facebook', 'instagram'],
-            media_id=media.get('id') if media else None,
-            post_type='post',
-            schedule_time=schedule_time if not immediate else None,
-            immediate=immediate,
-            auto_delete_at=delete_time,
-            signature_id=signature_id
-        )
-        results['social_post'] = social_post
-
-        # Twitter Post
-        print("🐦 Creating Twitter post...")
-        twitter_post = self.publer.create_post_with_media(
-            text=twitter_text,
-            platforms=['twitter'],
-            media_id=media.get('id') if media else None,
-            post_type='post',
-            schedule_time=schedule_time if not immediate else None,
-            immediate=immediate,
-            auto_delete_at=delete_time,
-            signature_id=None  # Twitter doesn't support signatures
-        )
-        results['twitter_post'] = twitter_post
-
-        # Reel Post (Facebook + Instagram reels)
-        print("🎥 Creating reel post...")
-        reel_post = self.publer.create_post_with_media(
-            text=reel_text,
-            platforms=['facebook', 'instagram'],
-            media_id=media.get('id') if media else None,
-            post_type='reel',
-            schedule_time=schedule_time if not immediate else None,
-            immediate=immediate,
-            auto_delete_at=delete_time,
-            signature_id=signature_id
-        )
-        results['reel_post'] = reel_post
+        # Use unified posting method
+        results = self.post_content(content_configs, media, schedule_time, immediate, test_mode)
 
         return results
 
-    def run(self, date_str=None, schedule_time=None, immediate=True):
+    def run(self, date_str=None, schedule_time=None, immediate=True, test_mode=False):
         """Main automation workflow"""
         if not date_str:
             date_str = datetime.now().strftime('%Y-%m-%d')
@@ -367,8 +374,9 @@ Generate ONE fact in this style:"""
             media = self.select_random_media()
 
             # Step 4: Post daily events
-            results = self.post_daily_events(content, media, date_str, schedule_time, immediate)
+            results = self.post_daily_events(content, media, date_str, schedule_time, immediate, test_mode)
 
+            delete_timing = "15 minutes" if test_mode else "24 hours"
             print("\n🎉 Automation completed successfully!")
             print(f"📊 Results summary:")
             print(f"   • Events found: {len(events)}")
@@ -379,7 +387,7 @@ Generate ONE fact in this style:"""
             print(f"   • Publishing: {publish_mode}")
             if schedule_time:
                 print(f"   • Scheduled for: {schedule_time.strftime('%Y-%m-%d %H:%M')}")
-            print(f"   • Auto-delete: 24 hours from post time")
+            print(f"   • Auto-delete: {delete_timing} from post time")
 
             return results
 
@@ -401,6 +409,8 @@ def main():
                        help='Generate content but don\'t actually post')
     parser.add_argument('--fact', action='store_true',
                        help='Post a random Pensacola fact instead of event-based content')
+    parser.add_argument('--test', action='store_true',
+                       help='Test mode - auto-delete posts after 15 minutes instead of 24 hours')
 
     args = parser.parse_args()
 
@@ -428,14 +438,14 @@ def main():
 
         # Handle fact posting mode
         if args.fact:
-            result = automation.post_pensacola_fact(schedule_time, immediate)
+            result = automation.post_pensacola_fact(schedule_time, immediate, args.test)
             if result:
                 print("\n✅ Pensacola fact posted successfully!")
             else:
                 print("\n❌ Pensacola fact posting failed!")
         else:
             # Standard event-based automation
-            results = automation.run(args.date, schedule_time, immediate)
+            results = automation.run(args.date, schedule_time, immediate, args.test)
             if results:
                 print("\n✅ Social media automation completed successfully!")
             else:

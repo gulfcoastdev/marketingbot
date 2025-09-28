@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+    <h2>📱 Social Media Posting Controls</h2>
+    <p>Manually trigger social media posts with one click</p>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+    <div style="text-align: center;">
+        <h3>📅 Daily Events</h3>
+        <p>Post today's Pensacola events to all social media platforms</p>
+        <form method="POST" action="{{ url_for('post_events') }}" id="eventsForm">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn btn-primary" id="eventsBtn">
+                📅 Post Events
+            </button>
+        </form>
+    </div>
+
+    <div style="text-align: center;">
+        <h3>🌊 Fun Facts</h3>
+        <p>Post a random Pensacola fun fact with video content</p>
+        <form method="POST" action="{{ url_for('post_facts') }}" id="factsForm">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn btn-success" id="factsBtn">
+                🌊 Post Facts
+            </button>
+        </form>
+    </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 30px;">
+    <button onclick="checkStatus()" class="btn btn-info" id="statusBtn">
+        🔍 Check System Status
+    </button>
+</div>
+
+<div id="result" style="display: none;">
+    <!-- Results will be displayed here -->
+</div>
+
+<div id="status" style="display: none;">
+    <!-- Status will be displayed here -->
+</div>
+
+<div style="background: #f8f9fa; padding: 20px; border-radius: 6px; margin-top: 30px;">
+    <h4>ℹ️ What Gets Posted</h4>
+    <ul style="margin-top: 10px;">
+        <li><strong>📘 Facebook:</strong> Feed post + Reels (with branded video)</li>
+        <li><strong>📸 Instagram:</strong> Feed post + Reels (with branded video)</li>
+        <li><strong>🐦 Twitter:</strong> Standard post (with branded video)</li>
+        <li><strong>🎥 Content:</strong> AI-generated text + randomly selected branded video</li>
+        <li><strong>⏰ Auto-Delete:</strong> Test mode = 15 minutes, Production = 24 hours</li>
+        <li><strong>🛡️ Security:</strong> Rate limited (10 posts/min), CSRF protected</li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function submitForm(formId, buttonId, endpoint) {
+    const form = document.getElementById(formId);
+    const formData = new FormData(form);
+
+    console.log(`[JS] Starting ${endpoint} request...`);
+    setLoading(buttonId, true);
+
+    fetch(endpoint, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        console.log(`[JS] Response status: ${response.status}`);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(`[JS] Response data:`, data);
+        setLoading(buttonId, false);
+        showResult(data);
+    })
+    .catch(error => {
+        console.error(`[JS] Error:`, error);
+        setLoading(buttonId, false);
+        showResult({
+            success: false,
+            message: 'Network error: ' + error.message
+        });
+    });
+}
+
+function showResult(data) {
+    const resultDiv = document.getElementById('result');
+    const alertClass = data.success ? 'alert-success' : 'alert-error';
+
+    let detailsHtml = '';
+    if (data.details) {
+        detailsHtml = '<br><div style="margin-top: 10px; font-family: monospace; font-size: 12px; background: rgba(0,0,0,0.1); padding: 10px; border-radius: 4px;">';
+
+        if (data.details.posting_result) {
+            const result = data.details.posting_result;
+            detailsHtml += `<strong>📊 Posting Results:</strong><br>`;
+
+            // Social post (Facebook + Instagram feeds)
+            if (result.social_post) {
+                detailsHtml += `• 📘 Facebook Feed + 📸 Instagram Feed: ✅ Success (Job: ${result.social_post.job_id})<br>`;
+            } else {
+                detailsHtml += `• 📘 Facebook Feed + 📸 Instagram Feed: ❌ Failed<br>`;
+            }
+
+            // Twitter post
+            if (result.twitter_post) {
+                detailsHtml += `• 🐦 Twitter: ✅ Success (Job: ${result.twitter_post.job_id})<br>`;
+            } else {
+                detailsHtml += `• 🐦 Twitter: ❌ Failed<br>`;
+            }
+
+            // Reel post (Facebook + Instagram reels)
+            if (result.reel_post) {
+                detailsHtml += `• 🎥 Facebook Reels + 📹 Instagram Reels: ✅ Success (Job: ${result.reel_post.job_id})<br>`;
+            } else {
+                detailsHtml += `• 🎥 Facebook Reels + 📹 Instagram Reels: ❌ Failed<br>`;
+            }
+        }
+
+        if (data.details.media_used) {
+            detailsHtml += `<strong>🎥 Media:</strong> ${data.details.media_used}<br>`;
+        }
+
+        if (data.details.accounts_available !== undefined) {
+            detailsHtml += `<strong>📱 Accounts:</strong> ${data.details.accounts_available} available<br>`;
+        }
+
+        if (data.details.timestamp) {
+            detailsHtml += `<strong>⏰ Time:</strong> ${new Date(data.details.timestamp).toLocaleString()}<br>`;
+        }
+
+        detailsHtml += '</div>';
+    }
+
+    resultDiv.innerHTML = `
+        <div class="alert ${alertClass}">
+            <strong>${data.success ? '✅ Success:' : '❌ Error:'}</strong> ${data.message}
+            ${detailsHtml}
+        </div>
+    `;
+    resultDiv.style.display = 'block';
+
+    // Scroll to result
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+function checkStatus() {
+    setLoading('statusBtn', true);
+
+    fetch('/status')
+    .then(response => response.json())
+    .then(data => {
+        setLoading('statusBtn', false);
+        showStatus(data);
+    })
+    .catch(error => {
+        setLoading('statusBtn', false);
+        showStatus({error: error.message});
+    });
+}
+
+function showStatus(data) {
+    const statusDiv = document.getElementById('status');
+
+    if (data.error) {
+        statusDiv.innerHTML = `
+            <div class="alert alert-error">
+                <strong>❌ Status Check Failed:</strong> ${data.error}
+            </div>
+        `;
+    } else {
+        statusDiv.innerHTML = `
+            <div class="status-grid">
+                <div class="status-item ${data.openai_key ? 'success' : 'error'}">
+                    <strong>OpenAI API</strong><br>
+                    ${data.openai_key ? '✅ Connected' : '❌ Missing Key'}
+                </div>
+                <div class="status-item ${data.publer_key ? 'success' : 'error'}">
+                    <strong>Publer API</strong><br>
+                    ${data.publer_key ? '✅ Connected' : '❌ Missing Key'}
+                </div>
+                <div class="status-item success">
+                    <strong>Server Time</strong><br>
+                    ${new Date(data.time).toLocaleString()}
+                </div>
+                <div class="status-item success">
+                    <strong>Environment</strong><br>
+                    ${data.environment}
+                </div>
+            </div>
+        `;
+    }
+
+    statusDiv.style.display = 'block';
+}
+
+// Handle form submissions
+document.getElementById('eventsForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitForm('eventsForm', 'eventsBtn', '/post_events');
+});
+
+document.getElementById('factsForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitForm('factsForm', 'factsBtn', '/post_facts');
+});
+</script>
+{% endblock %}

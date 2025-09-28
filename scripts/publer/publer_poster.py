@@ -215,7 +215,7 @@ class PublerPoster:
                 print(f"Response: {e.response.text}")
             return None
 
-    def create_post_with_media(self, text, platforms, media_id=None, post_type='post', schedule_time=None, immediate=True, auto_delete_at=None, signature_id=None):
+    def create_post_with_media(self, text, platforms, media_id=None, post_type='post', schedule_time=None, immediate=True, auto_delete=None, signature_id=None):
         """
         Create a post with media for specified platforms
 
@@ -226,7 +226,7 @@ class PublerPoster:
             post_type (str): Type of post ('post', 'reel', 'story')
             schedule_time (datetime): When to schedule (None for immediate)
             immediate (bool): True for immediate publishing, False for scheduled
-            auto_delete_at (datetime): When to auto-delete the post
+            auto_delete (dict): Auto-delete config {'duration': int, 'unit': str} (None for no auto-delete)
             signature_id (str): Signature ID to add to posts (None for no signature)
         """
         # Get account IDs for the specified platforms
@@ -249,16 +249,14 @@ class PublerPoster:
                         account_config['scheduled_at'] = schedule_time.isoformat()
 
                     # Add auto-delete if specified (for both immediate and scheduled)
-                    if auto_delete_at:
-                        # Ensure timezone is included in ISO format
-                        if auto_delete_at.tzinfo is None:
-                            # If no timezone, assume local timezone
-                            import time
-                            import datetime
-                            local_offset = time.timezone if (time.daylight == 0) else time.altzone
-                            local_offset = datetime.timedelta(seconds=-local_offset)
-                            auto_delete_at = auto_delete_at.replace(tzinfo=datetime.timezone(local_offset))
-                        account_config['auto_delete_at'] = auto_delete_at.isoformat()
+                    if auto_delete:
+                        account_config['delete'] = {
+                            'hide': False,
+                            'delay': {
+                                'duration': auto_delete['duration'],
+                                'unit': auto_delete['unit']
+                            }
+                        }
 
                     # Add signature if specified (not supported on Twitter/X and Bluesky)
                     if signature_id and platform not in ['twitter', 'bluesky']:
@@ -280,8 +278,8 @@ class PublerPoster:
                         'text': text
                     }
                 else:
-                    # Use 'video' type when we have video media, 'photo' for images, 'status' for text-only
-                    content_type = 'video' if media_id else 'status'  # Changed from 'photo' to 'video'
+                    # Facebook: 'video' for video media, 'photo' for images, 'status' for text-only
+                    content_type = 'video' if media_id else 'status'
                     networks['facebook'] = {
                         'type': content_type,
                         'text': text
@@ -293,12 +291,19 @@ class PublerPoster:
                         'text': text
                     }
                 else:
-                    # Use 'video' type when we have video media, 'photo' for images, 'status' for text-only
-                    content_type = 'video' if media_id else 'status'  # Changed from 'photo' to 'video'
+                    # Instagram: 'video' for video media, 'photo' for images (no 'status' type supported)
+                    content_type = 'video' if media_id else 'photo'  # Default to 'photo' since Instagram doesn't support 'status'
                     networks['instagram'] = {
                         'type': content_type,
                         'text': text
                     }
+            elif platform == 'twitter':
+                # Twitter: 'video' for video media, 'photo' for images, 'status' for text-only
+                content_type = 'video' if media_id else 'status'
+                networks['twitter'] = {
+                    'type': content_type,
+                    'text': text
+                }
 
         # Add media to networks if provided
         if media_id:
@@ -335,8 +340,8 @@ class PublerPoster:
             result = response.json()
 
             print(f"✅ {post_type.title()} post created successfully for {', '.join(platforms)}!")
-            if auto_delete_at:
-                print(f"⏰ Auto-delete scheduled for: {auto_delete_at.strftime('%Y-%m-%d %H:%M')}")
+            if auto_delete:
+                print(f"⏰ Auto-delete scheduled for: {auto_delete['duration']} {auto_delete['unit']}(s) from post time")
 
             if 'job_id' in result:
                 job_status = self.check_job_status(result['job_id'])
@@ -363,7 +368,7 @@ class PublerPoster:
                 job_status = status.get('status', 'unknown')
                 print(f"📊 Job status: {job_status}")
 
-                if job_status in ['completed', 'failed']:
+                if job_status in ['complete', 'completed', 'failed']:
                     return status
 
                 time.sleep(5)  # Wait 5 seconds before checking again
