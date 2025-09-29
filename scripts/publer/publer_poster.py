@@ -215,7 +215,7 @@ class PublerPoster:
                 print(f"Response: {e.response.text}")
             return None
 
-    def create_post_with_media(self, text, platforms, media_id=None, post_type='post', schedule_time=None, immediate=True, auto_delete=None, signature_id=None):
+    def create_post_with_media(self, text, platforms, media_id=None, post_type='post', schedule_time=None, immediate=True, auto_delete=None, signature_id=None, location_id=None):
         """
         Create a post with media for specified platforms
 
@@ -228,6 +228,7 @@ class PublerPoster:
             immediate (bool): True for immediate publishing, False for scheduled
             auto_delete (dict): Auto-delete config {'duration': int, 'unit': str} (None for no auto-delete)
             signature_id (str): Signature ID to add to posts (None for no signature)
+            location_id (str): Location ID to add to posts (None for no location)
         """
         # Get account IDs for the specified platforms
         post_accounts = []
@@ -261,6 +262,20 @@ class PublerPoster:
                     # Add signature if specified (not supported on Twitter/X and Bluesky)
                     if signature_id and platform not in ['twitter', 'bluesky']:
                         account_config['signature'] = signature_id
+
+                    # Add location if specified (supported on Facebook Pages, Instagram Business, Threads)
+                    # Note: Facebook doesn't support location on videos, GIFs, Stories, or Reels
+                    if location_id and platform in ['facebook', 'instagram']:
+                        if platform == 'facebook' and media_id:
+                            # Skip location for Facebook when media is present (videos/GIFs not supported)
+                            print(f"⚠️ Skipping Facebook location - not supported with media")
+                        else:
+                            # Add location for Instagram (all types) or Facebook text-only posts
+                            account_config['location'] = {
+                                'id': location_id,
+                                'name': 'Pensacola, Florida',
+                                'info': 'Pensacola, FL'
+                            }
 
                     post_accounts.append(account_config)
 

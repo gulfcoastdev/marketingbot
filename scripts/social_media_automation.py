@@ -166,7 +166,7 @@ Here's the event data: """ + json.dumps(events_json, indent=2) + """
         """Generate a random fact about Pensacola, Gulf Coast, or Escambia area"""
         print("🧠 Generating Pensacola fact...")
 
-        prompt = """Generate a single interesting, fun fact about Pensacola, Gulf Coast, or Escambia County area.
+        prompt = """Generate a single interesting, fun fact about Pensacola, Gulf Coast, or Escambia County area. Use natural language, avoid weird phrases like juicy tidbit and similar.
 
 Requirements:
 - Focus on history, nature, culture, attractions, or unique features
@@ -174,7 +174,7 @@ Requirements:
 - Keep it under 300 characters
 - Include relevant emojis
 - Make it feel local and authentic
-- Don't use hashtags
+- use one hashtag that can help the post to go viral like #blueangels
 
 Examples:
 Did you know?
@@ -200,7 +200,7 @@ Generate ONE fact in this style:"""
             print(f"❌ Error generating fact: {e}")
             return "🏖️ Pensacola Beach boasts some of the world's whitest sand beaches, made of pure quartz crystals! ✨"
 
-    def post_content(self, content_configs, media, schedule_time=None, immediate=True, test_mode=False):
+    def post_content(self, content_configs, media, schedule_time=None, immediate=True, test_mode=False, location_id=None):
         """
         Unified method to post content to social media platforms
 
@@ -210,6 +210,7 @@ Generate ONE fact in this style:"""
             schedule_time (datetime): When to schedule (None for immediate)
             immediate (bool): True for immediate publishing
             test_mode (bool): True for 15-minute auto-delete, False for 24-hour auto-delete
+            location_id (str): Location ID to add to posts (None for no location)
 
         Returns:
             dict: Results for each post type
@@ -247,7 +248,8 @@ Generate ONE fact in this style:"""
                 schedule_time=schedule_time if not immediate else None,
                 immediate=immediate,
                 auto_delete=auto_delete,
-                signature_id=signature_id if 'twitter' not in platforms else None
+                signature_id=signature_id if 'twitter' not in platforms else None,
+                location_id=location_id
             )
             results[name.lower().replace(' ', '_')] = result
 
@@ -278,8 +280,10 @@ Generate ONE fact in this style:"""
             }
         ]
 
-        # Use unified posting method
-        results = self.post_content(content_configs, media, schedule_time, immediate, test_mode)
+        # Use unified posting method with Pensacola location
+        # Note: Instagram works with 109316785761748, but Facebook may need a different ID
+        pensacola_location_id = "109316785761748"  # Generic Pensacola, FL location
+        results = self.post_content(content_configs, media, schedule_time, immediate, test_mode, pensacola_location_id)
         result = results.get('fact_post')
 
         if result:
@@ -349,8 +353,10 @@ Generate ONE fact in this style:"""
             }
         ]
 
-        # Use unified posting method
-        results = self.post_content(content_configs, media, schedule_time, immediate, test_mode)
+        # Use unified posting method with Pensacola location
+        # Note: Instagram works with 109316785761748, but Facebook may need a different ID
+        pensacola_location_id = "109316785761748"  # Generic Pensacola, FL location
+        results = self.post_content(content_configs, media, schedule_time, immediate, test_mode, pensacola_location_id)
 
         return results
 
@@ -411,6 +417,10 @@ def main():
                        help='Post a random Pensacola fact instead of event-based content')
     parser.add_argument('--test', action='store_true',
                        help='Test mode - auto-delete posts after 15 minutes instead of 24 hours')
+    parser.add_argument('--schedule-date',
+                       help='Schedule posts for specific date (YYYY-MM-DD format)')
+    parser.add_argument('--schedule-hour', type=int, default=9,
+                       help='Hour to schedule posts (0-23, default: 9 for 9 AM)')
 
     args = parser.parse_args()
 
@@ -425,11 +435,20 @@ def main():
             except ValueError:
                 print("❌ Invalid schedule time format. Use YYYY-MM-DD HH:MM (e.g., 2025-09-25 14:30)")
                 sys.exit(1)
+        elif args.schedule_date:
+            try:
+                # Parse date and combine with hour
+                schedule_date = datetime.strptime(args.schedule_date, '%Y-%m-%d')
+                schedule_time = schedule_date.replace(hour=args.schedule_hour, minute=0, second=0)
+                print(f"📅 Scheduling posts for: {schedule_time.strftime('%Y-%m-%d at %H:%M')}")
+            except ValueError:
+                print("❌ Invalid schedule date format. Use YYYY-MM-DD (e.g., 2025-09-25)")
+                sys.exit(1)
 
         # Determine publishing mode
-        immediate = not args.scheduled
-        if args.schedule_time and immediate:
-            print("⚠️  Schedule time provided but immediate publishing selected. Using scheduled publishing.")
+        immediate = not args.scheduled and not args.schedule_date
+        if (args.schedule_time or args.schedule_date) and immediate:
+            print("⚠️  Schedule time/date provided. Using scheduled publishing.")
             immediate = False
 
         if args.dry_run:
