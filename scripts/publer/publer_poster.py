@@ -507,24 +507,38 @@ class PublerPoster:
 
 
     def select_random_branded_video(self):
-        """Select a random video from Publer library"""
+        """Select a random video from Publer library using pagination to get ALL videos"""
         try:
-            # Get video media from Publer
-            media_data = self.get_media(page=0, media_types=['video'])
-            if not media_data or len(media_data.get('media', [])) == 0:
-                return None
-
-            # Filter videos with naming convention
+            all_videos = []
+            page = 0
             video_pattern = re.compile(r'^\d+_.*\.mp4$')
-            videos = []
 
-            for media_item in media_data.get('media', []):
-                filename = media_item.get('name', '') or media_item.get('filename', '')
-                if video_pattern.match(filename):
-                    videos.append(media_item)
+            # Paginate through all media to get all videos
+            while True:
+                media_data = self.get_media(page=page, media_types=['video'])
+                if not media_data or len(media_data.get('media', [])) == 0:
+                    break
 
-            if videos:
-                selected = random.choice(videos)
+                # Filter videos with naming convention from this page
+                for media_item in media_data.get('media', []):
+                    filename = media_item.get('name', '') or media_item.get('filename', '')
+                    if video_pattern.match(filename):
+                        all_videos.append(media_item)
+
+                # Check if there are more pages
+                current_count = len(media_data.get('media', []))
+                total_count = media_data.get('total', 0)
+
+                # If we got fewer items than expected, we've reached the end
+                if current_count < 20 or (page + 1) * 20 >= total_count:
+                    break
+
+                page += 1
+
+            print(f"🎬 Found {len(all_videos)} branded videos across {page + 1} pages")
+
+            if all_videos:
+                selected = random.choice(all_videos)
                 return selected
             return None
 

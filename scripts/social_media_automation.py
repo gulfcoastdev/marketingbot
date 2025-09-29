@@ -299,32 +299,18 @@ Generate ONE fact in this style:"""
         return result
 
     def select_random_media(self):
-        """Select random media from Publer library following naming convention"""
+        """Select random media from Publer library following naming convention (with pagination)"""
         print("🎬 Selecting random media...")
 
-        # Get video media from Publer
-        media_data = self.publer.get_media(page=0, media_types=['video'])
-        if not media_data or len(media_data.get('media', [])) == 0:
-            print("❌ No media found in Publer library")
+        # Use the improved paginated method from publer_poster
+        selected_video = self.publer.select_random_branded_video()
+
+        if selected_video:
+            print(f"✅ Selected video: {selected_video.get('name', 'Unknown')}")
+            return selected_video
+        else:
+            print("❌ No branded videos found matching naming convention (number_**.mp4)")
             return None
-
-        # Filter media following naming convention: number_**.mp4
-        video_pattern = re.compile(r'^\d+_.*\.mp4$')
-        videos = []
-
-        for media_item in media_data.get('media', []):
-            filename = media_item.get('name', '') or media_item.get('filename', '')
-            if video_pattern.match(filename):
-                videos.append(media_item)
-
-        if not videos:
-            print("❌ No videos found matching naming convention (number_**.mp4)")
-            return None
-
-        # Select random video
-        selected_video = random.choice(videos)
-        print(f"✅ Selected video: {selected_video.get('name', 'Unknown')}")
-        return selected_video
 
     def post_daily_events(self, content, media, date_str, schedule_time=None, immediate=True, test_mode=False):
         """Create and publish daily events posts to Facebook, Instagram, and Twitter"""
