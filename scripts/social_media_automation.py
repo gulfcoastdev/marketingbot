@@ -163,42 +163,60 @@ Here's the event data: """ + json.dumps(events_json, indent=2) + """
             }
 
     def generate_pensacola_fact(self):
-        """Generate a random fact about Pensacola, Gulf Coast, or Escambia area"""
-        print("🧠 Generating Pensacola fact...")
-
-        prompt = """Generate a single interesting, fun fact about Pensacola, Gulf Coast, or Escambia County area. Use natural language, avoid weird phrases like juicy tidbit and similar.
-
-Requirements:
-- Focus on history, nature, culture, attractions, or unique features
-- Make it engaging and shareable for social media
-- Keep it under 300 characters
-- Include relevant emojis
-- Make it feel local and authentic
-- use one hashtag that can help the post to go viral like #blueangels
-
-Examples:
-Did you know?
-🏴‍☠️ Pensacola was once the hideout of pirate Jean Lafitte! The Gulf Coast's swashbuckling history lives on in our crystal waters ⚓
-Fun Fact:
-🌊 The Gulf Islands National Seashore protects 150 miles of pristine coastline - some of the whitest sand beaches in the world! 🏖️
-
-Generate ONE fact in this style:"""
+        """Select a random fact from JSON file about Pensacola, Gulf Coast, or Escambia area"""
+        print("🧠 Selecting random Pensacola fact from database...")
 
         try:
-            response = self.openai_client.chat.completions.create(
-                model="gpt-4",
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=150,
-                temperature=0.8
-            )
+            # Load facts from JSON file
+            facts_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                    'data', 'input', 'fun_facts.json')
 
-            fact = response.choices[0].message.content.strip()
-            print(f"✅ Generated fact: {fact}")
-            return fact
+            with open(facts_file, 'r', encoding='utf-8') as f:
+                facts_data = json.load(f)
+
+            # Select random fact
+            fact_entry = random.choice(facts_data)
+            fact_text = fact_entry['text']
+            json_hashtags = fact_entry.get('hashtags', [])
+
+            # Add engaging emojis based on content keywords
+            emojis = ""
+            fact_lower = fact_text.lower()
+            if any(word in fact_lower for word in ['navy', 'naval', 'aviation', 'blue angels']):
+                emojis = "✈️ "
+            elif any(word in fact_lower for word in ['beach', 'sand', 'coast', 'water', 'gulf']):
+                emojis = "🏖️ "
+            elif any(word in fact_lower for word in ['pirate', 'spanish', 'history', 'settlement']):
+                emojis = "🏴‍☠️ "
+            elif any(word in fact_lower for word in ['flags', 'five']):
+                emojis = "🏳️ "
+            else:
+                emojis = "🌟 "
+
+            # Format the fact with emojis
+            formatted_fact = f"{emojis}Did you know? {fact_text}"
+
+            # Combine JSON hashtags with all MiCasa hashtags
+            micasa_hashtags = ["#MiCasaRentals", "#PensacolaBeachRental", "#FloridaVacation",
+                             "#Pensacola", "#FurnishedRental", "#GulfCoastGetaway",
+                             "#SnowbirdSeason", "#VisitPensacola", "#BeachLife", "#VacationHome"]
+
+            # Add 2 JSON hashtags + all 10 MiCasa hashtags = max 12 hashtags
+            selected_json_hashtags = json_hashtags[:2] if json_hashtags else []
+            all_hashtags = selected_json_hashtags + micasa_hashtags
+            hashtag_string = " ".join(all_hashtags)
+
+            full_fact = f"{formatted_fact}\n\n{hashtag_string}"
+
+            print(f"✅ Selected fact: {formatted_fact[:100]}...")
+            print(f"📝 Combined hashtags: {len(json_hashtags)} from JSON + {len(micasa_hashtags)} MiCasa")
+            return full_fact
 
         except Exception as e:
-            print(f"❌ Error generating fact: {e}")
-            return "🏖️ Pensacola Beach boasts some of the world's whitest sand beaches, made of pure quartz crystals! ✨"
+            print(f"❌ Error loading fact from JSON: {e}")
+            # Fallback fact with all MiCasa hashtags
+            fallback_hashtags = "#MiCasaRentals #PensacolaBeachRental #FloridaVacation #Pensacola #FurnishedRental #GulfCoastGetaway #SnowbirdSeason #VisitPensacola #BeachLife #VacationHome"
+            return f"🏖️ Did you know? Pensacola Beach boasts some of the world's whitest sand beaches, made of pure quartz crystals! ✨\n\n{fallback_hashtags}"
 
     def post_content(self, content_configs, media, schedule_time=None, immediate=True, test_mode=False, location_id=None):
         """
@@ -224,8 +242,8 @@ Generate ONE fact in this style:"""
         # Get default signature for posts (Twitter doesn't support signatures)
         signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
 
-        # Add fallback hashtags if no signature found
-        fallback_hashtags = "\n\n#micasa #pensacola #furnished #rental"
+        # Add fallback hashtags if no signature found (all MiCasa hashtags)
+        fallback_hashtags = "\n\n#MiCasaRentals #PensacolaBeachRental #FloridaVacation #Pensacola #FurnishedRental #GulfCoastGetaway #SnowbirdSeason #VisitPensacola #BeachLife #VacationHome"
 
         results = {}
 
@@ -235,8 +253,9 @@ Generate ONE fact in this style:"""
             post_type = config['post_type']
             name = config['name']
 
-            # Add fallback hashtags if no signature and not Twitter-only
-            if not signature_id and not all(p == 'twitter' for p in platforms):
+            # Add fallback hashtags if no signature, not Twitter-only, and no hashtags already present
+            has_hashtags = '#' in text
+            if not signature_id and not all(p == 'twitter' for p in platforms) and not has_hashtags:
                 text += fallback_hashtags
 
             print(f"📝 Creating {name}...")
