@@ -196,12 +196,10 @@ Here's the event data: """ + json.dumps(events_json, indent=2) + """
             # Format the fact with emojis
             formatted_fact = f"{emojis}Did you know? {fact_text}"
 
-            # Combine JSON hashtags with all MiCasa hashtags
-            micasa_hashtags = ["#MiCasaRentals", "#PensacolaBeachRental", "#FloridaVacation",
-                             "#Pensacola", "#FurnishedRental", "#GulfCoastGetaway",
-                             "#SnowbirdSeason", "#VisitPensacola", "#BeachLife", "#VacationHome"]
+            # Combine JSON hashtags with MiCasa hashtags
+            micasa_hashtags = ["#Pensacola", "#PensacolaBeach", "#VisitPensacola", "#MicasaRentals"]
 
-            # Add 2 JSON hashtags + all 10 MiCasa hashtags = max 12 hashtags
+            # Add 2 JSON hashtags + 4 MiCasa hashtags = max 6 hashtags
             selected_json_hashtags = json_hashtags[:2] if json_hashtags else []
             all_hashtags = selected_json_hashtags + micasa_hashtags
             hashtag_string = " ".join(all_hashtags)
@@ -214,8 +212,8 @@ Here's the event data: """ + json.dumps(events_json, indent=2) + """
 
         except Exception as e:
             print(f"❌ Error loading fact from JSON: {e}")
-            # Fallback fact with all MiCasa hashtags
-            fallback_hashtags = "#MiCasaRentals #PensacolaBeachRental #FloridaVacation #Pensacola #FurnishedRental #GulfCoastGetaway #SnowbirdSeason #VisitPensacola #BeachLife #VacationHome"
+            # Fallback fact with MiCasa hashtags
+            fallback_hashtags = "#Pensacola #PensacolaBeach #VisitPensacola #MicasaRentals"
             return f"🏖️ Did you know? Pensacola Beach boasts some of the world's whitest sand beaches, made of pure quartz crystals! ✨\n\n{fallback_hashtags}"
 
     def post_content(self, content_configs, media, schedule_time=None, immediate=True, test_mode=False, location_id=None):
@@ -242,8 +240,8 @@ Here's the event data: """ + json.dumps(events_json, indent=2) + """
         # Get default signature for posts (Twitter doesn't support signatures)
         signature_id = self.publer.get_default_signature(['facebook', 'instagram'])
 
-        # Add fallback hashtags if no signature found (all MiCasa hashtags)
-        fallback_hashtags = "\n\n#MiCasaRentals #PensacolaBeachRental #FloridaVacation #Pensacola #FurnishedRental #GulfCoastGetaway #SnowbirdSeason #VisitPensacola #BeachLife #VacationHome"
+        # Add fallback hashtags if no signature found
+        fallback_hashtags = "\n\n#Pensacola #PensacolaBeach #VisitPensacola #MicasaRentals"
 
         results = {}
 

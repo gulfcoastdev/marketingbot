@@ -184,29 +184,137 @@ python3 midjourney_generator.py generate "festive Christmas scene, professional 
 - **Cost Effective**: Often better value than OpenAI pricing
 - **Drop-in Replacement**: Works with existing holiday workflow
 
-## Social Media Post Auto-Delete Guidelines
+## Social Media Automation (`scripts/social_media_automation.py`)
 
-### **Auto-Delete Timing Rules:**
-- **Test Posts**: 10 minutes (for testing functionality)
-- **Production Posts**: 24 hours (default for all regular content)
-- **Custom Posts**: As specified by user
+### **Overview**
+Primary script for automated social media posting via Publer API. Posts to Facebook, Instagram, and Twitter with random fun facts or event-based content.
 
-### **Implementation:**
-```python
-# Test posts (debugging/testing)
-delete_time = datetime.now() + timedelta(minutes=10)
+### **Basic Usage**
 
-# Production posts (default)
-delete_time = datetime.now() + timedelta(hours=24)
+#### Post Random Fun Fact:
+```bash
+# Immediate post (24-hour auto-delete)
+python3 scripts/social_media_automation.py --fact
 
-# Custom timing (as specified)
-delete_time = datetime.now() + timedelta(hours=CUSTOM_HOURS)
+# Test mode (15-minute auto-delete)
+python3 scripts/social_media_automation.py --fact --test
 ```
 
-### **When to Use:**
-- **10 minutes**: Testing automation, debugging API calls, verifying content
-- **24 hours**: Daily events, facts, regular marketing content
-- **Custom**: Special campaigns, announcements, or user-specified duration
+#### Schedule Fun Facts:
+```bash
+# Schedule for specific date at 9 AM
+python3 scripts/social_media_automation.py --fact --schedule-date 2025-10-15 --schedule-hour 9
+
+# Schedule for specific date at 5 PM
+python3 scripts/social_media_automation.py --fact --schedule-date 2025-10-15 --schedule-hour 17
+
+# Schedule exact time
+python3 scripts/social_media_automation.py --fact --schedule-time "2025-10-15 14:30"
+```
+
+#### Schedule Multiple Days (with API rate limiting):
+```bash
+# Schedule AM and PM posts for Oct 12-30
+for date in {12..30}; do
+  python3 scripts/social_media_automation.py --fact --schedule-date 2025-10-$date --schedule-hour 9
+  sleep 2
+  python3 scripts/social_media_automation.py --fact --schedule-date 2025-10-$date --schedule-hour 17
+  sleep 2
+done
+```
+
+#### Event-Based Content:
+```bash
+# Post today's events immediately
+python3 scripts/social_media_automation.py
+
+# Post events for specific date
+python3 scripts/social_media_automation.py --date 2025-10-15
+
+# Schedule event post
+python3 scripts/social_media_automation.py --date 2025-10-15 --schedule-time "2025-10-15 09:00"
+```
+
+### **Command Line Arguments**
+- `--fact` - Post random Pensacola fact (from `data/input/fun_facts.json`)
+- `--date YYYY-MM-DD` - Date for event scraping (default: today)
+- `--schedule-date YYYY-MM-DD` - Schedule for specific date
+- `--schedule-hour 0-23` - Hour to schedule (default: 9)
+- `--schedule-time "YYYY-MM-DD HH:MM"` - Exact schedule time
+- `--test` - Test mode with 15-minute auto-delete
+- `--scheduled` - Use scheduled publishing
+- `--dry-run` - Generate content without posting
+
+### **Platform Posting Behavior**
+- **Facebook + Instagram**: Same content, supports signatures/locations
+- **Twitter**: Posts separately, no signatures (character limits)
+- **Reels**: Short-form video content (Facebook + Instagram)
+
+### **Content Features**
+
+#### Fun Facts:
+- 106+ unique Pensacola facts in database
+- Random selection for variety
+- Automatic emoji assignment based on content
+- Location tagging: Pensacola, FL
+- Random branded video pairing (37 videos)
+
+#### Hashtags:
+Default hashtags added to all posts:
+```
+#Pensacola #PensacolaBeach #VisitPensacola #MicasaRentals
+```
+Plus 2 topic-specific hashtags from fun_facts.json (6 total max)
+
+#### Event Posts:
+- Scrapes live events from Visit Pensacola
+- OpenAI-generated captions
+- Long-form (social) and short-form (reel) versions
+- Includes event links and MiCasa branding
+
+### **Auto-Delete Timing**
+- **Test Mode** (`--test`): 15 minutes
+- **Production Mode** (default): 24 hours
+- All posts auto-delete after specified time
+
+### **API Rate Limiting**
+To avoid Publer 429 errors when scheduling multiple posts:
+- Add 2-3 second delays between posts (`sleep 2`)
+- Pause 3+ seconds every 5 requests
+- If rate limited, wait 30+ seconds before continuing
+
+### **Media Selection**
+- Automatically selects from branded video library
+- Pattern: `^\d+_.*\.mp4$` (e.g., `17_branded.mp4`)
+- Pagination support for all 37 videos
+- Random selection prevents repetition
+
+### **Examples**
+
+#### Schedule a Week of Fun Facts (AM + PM):
+```bash
+source pensacola_scraper_env/bin/activate
+for date in {12..18}; do
+  echo "Scheduling for Oct $date..."
+  python3 scripts/social_media_automation.py --fact --schedule-date 2025-10-$date --schedule-hour 9
+  sleep 2
+  python3 scripts/social_media_automation.py --fact --schedule-date 2025-10-$date --schedule-hour 17
+  sleep 2
+done
+```
+
+#### Test Fact Post Locally:
+```bash
+source pensacola_scraper_env/bin/activate
+python3 scripts/social_media_automation.py --fact --test
+# Posts will auto-delete in 15 minutes
+```
+
+#### Schedule Tomorrow's Events:
+```bash
+source pensacola_scraper_env/bin/activate
+python3 scripts/social_media_automation.py --date 2025-10-16 --schedule-time "2025-10-16 08:00"
+```
 
 ## Testing Requirements
 
